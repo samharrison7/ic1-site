@@ -1,0 +1,14 @@
+# Pixi environments
+.pixi
+*.egg-info
+
+# Quarto
+/.quarto/
+**/*.quarto_ipynb
+/_output/
+
+# Brand source files (originals live on the UKCEH Hub)
+/brand-source/
+
+# Local tooling
+.DS_Store

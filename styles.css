@@ -1,0 +1,483 @@
+/* UKCEH brand styling (UKCEH Brand Guidelines 2.0).
+   Colours are defined in _brand.yml; component tokens live here. */
+
+:root {
+  --ukceh-black: #000000;
+  --ukceh-white: #ffffff;
+  --ukceh-data: #dbfe52;
+  --ukceh-fg: var(--ukceh-black);
+  --ukceh-rule: var(--ukceh-black);
+  --ukceh-muted: #4d4d4d;
+  --ukceh-panel: #f5f9f7; /* air 25% tint */
+  --ukceh-font: "Suisse Int'l", "Suisse International", Arial, Helvetica, sans-serif;
+}
+
+body.quarto-dark {
+  --ukceh-fg: var(--ukceh-white);
+  --ukceh-rule: var(--ukceh-white);
+  --ukceh-muted: #b3b3b3;
+  --ukceh-panel: rgba(255, 255, 255, 0.07);
+}
+
+/* ---------- Typography ---------- */
+
+body,
+.navbar,
+h1, h2, h3, h4, h5, h6,
+.title,
+.btn {
+  font-family: var(--ukceh-font);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+#quarto-content main h2 {
+  font-size: 1.75rem;
+  margin-top: 3.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ukceh-rule);
+  border-bottom: 0;
+}
+
+#quarto-content main section.level2:first-of-type > h2 {
+  margin-top: 0;
+}
+
+#quarto-content main h3 {
+  font-size: 1.35rem;
+  margin: 3rem 0 1.25rem;
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* Body links: black (light) or data green (dark), with a data-green
+   highlight on hover. */
+#quarto-content main a:not(.cta) {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+#quarto-content main a:not(.cta):hover {
+  background-color: var(--ukceh-data);
+  color: var(--ukceh-black);
+  text-decoration: none;
+}
+
+/* Focus brackets: [ LABEL ] for categories and section names. */
+.label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.label::before { content: "[\2002"; }
+.label::after { content: "\2002]"; }
+
+.muted {
+  color: var(--ukceh-muted);
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.navbar .navbar-logo {
+  flex-shrink: 0;
+  width: auto;
+  height: 32px; /* digital minimum is 30px; never crop the logo */
+  max-height: none;
+}
+
+.navbar .navbar-title {
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.navbar .nav-link {
+  font-size: 0.95rem;
+}
+
+/* Small screens: keep the logo and title whole */
+@media (max-width: 575.98px) {
+  .navbar .navbar-brand-logo {
+    flex-shrink: 0;
+    overflow: visible;
+  }
+
+  .navbar .navbar-logo {
+    height: 30px;
+  }
+
+  .navbar .navbar-brand {
+    margin-right: 0;
+  }
+
+  .navbar .navbar-title {
+    margin-left: 0.5rem;
+    padding-left: 0.5rem;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Too narrow for logo and title together; the logo still links home. */
+@media (max-width: 389.98px) {
+  .navbar .navbar-title {
+    display: none;
+  }
+}
+
+.navbar .nav-link.active {
+  box-shadow: inset 0 -2px 0 var(--ukceh-data);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: var(--ukceh-data) !important;
+}
+
+/* ---------- Title banner ---------- */
+
+.quarto-title-banner {
+  padding: 3.5rem 0 3rem;
+  margin-bottom: 0;
+}
+
+#title-block-header {
+  margin-bottom: 3rem;
+}
+
+#title-block-header .quarto-title-meta {
+  margin: 0;
+}
+
+main.content.quarto-banner-title-block {
+  margin-top: 0;
+}
+
+body.quarto-dark .quarto-title-banner {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.quarto-title-banner .title {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.quarto-title-banner .subtitle {
+  margin-top: 1rem;
+  font-size: 1.15rem;
+  opacity: 0.85;
+}
+
+.quarto-title-banner .description {
+  max-width: 38rem;
+  padding-top: 1.25rem;
+  font-size: 1.15rem;
+}
+
+/* Home page: subtitle sits above the title as a bracket label. */
+.home .quarto-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.home .quarto-title .subtitle {
+  order: -1;
+  margin: 0 0 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ukceh-data);
+  opacity: 1;
+}
+
+.home .quarto-title .subtitle::before { content: "[\2002"; }
+.home .quarto-title .subtitle::after { content: "\2002]"; }
+
+.home .quarto-title-banner {
+  padding: 5rem 0 4.5rem;
+}
+
+.home .quarto-title-banner .title {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+}
+
+/* ---------- Call to action (arrow in a data-green box) ---------- */
+
+.cta {
+  margin-left: -0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.35rem 0.35rem 0.35rem 0.85rem;
+  border: 1px solid transparent;
+  color: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.15s ease;
+}
+
+.cta::after {
+  content: "\2192";
+  display: inline-grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: var(--ukceh-data);
+  color: var(--ukceh-black);
+}
+
+.cta:hover,
+.cta:focus-visible {
+  border-color: currentColor;
+  color: inherit;
+}
+
+/* ---------- Lead paragraph ---------- */
+
+.lead {
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 575.98px) {
+  .lead {
+    font-size: 1.15rem;
+  }
+}
+
+/* ---------- Link cards ---------- */
+
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+/* The whole card is clickable: the title link is stretched over it. */
+.link-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.75rem 4.5rem;
+  border: 1px solid var(--ukceh-rule);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.link-card p {
+  margin-bottom: 0.5rem;
+}
+
+/* Photo header, bled to the card edges. The wrapper clips the hover zoom. */
+.link-card p:has(> .link-card-photo) {
+  margin: -1.75rem -1.75rem 1.5rem;
+  overflow: hidden;
+}
+
+.link-card .link-card-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.link-card:hover .link-card-photo,
+.link-card:focus-within .link-card-photo {
+  transform: scale(1.04);
+}
+
+.link-card .label {
+  color: var(--ukceh-muted);
+}
+
+.link-card-title {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+#quarto-content main .link-card a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#quarto-content main .link-card a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* Override the body-link hover (black on data green). */
+#quarto-content main .link-card a:hover {
+  background: none;
+  color: inherit;
+}
+
+#quarto-content main .link-card a:focus-visible {
+  outline: none;
+}
+
+#quarto-content main .link-card a:focus-visible::before {
+  outline: 2px solid var(--ukceh-fg);
+  outline-offset: 3px;
+}
+
+.link-card p:last-child {
+  color: var(--ukceh-muted);
+}
+
+/* Arrow in a data-green box, matching .cta */
+.link-card::after {
+  content: "\2192";
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  display: inline-grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: var(--ukceh-data);
+  color: var(--ukceh-black);
+  transition: transform 0.15s ease;
+}
+
+/* Hover: the card turns black, like the brand's dark panels. */
+.link-card:hover,
+.link-card:focus-within {
+  background: var(--ukceh-black);
+  color: var(--ukceh-white);
+  border-color: var(--ukceh-black);
+}
+
+.link-card:hover::after,
+.link-card:focus-within::after {
+  transform: translateX(4px);
+}
+
+.link-card:hover .label,
+.link-card:focus-within .label {
+  color: var(--ukceh-data);
+}
+
+.link-card:hover p:last-child,
+.link-card:focus-within p:last-child {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Dark mode: the page is already black, so lift the card instead. */
+body.quarto-dark .link-card:hover,
+body.quarto-dark .link-card:focus-within {
+  background: var(--ukceh-panel);
+  border-color: var(--ukceh-data);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-card,
+  .link-card::after,
+  .link-card .link-card-photo {
+    transition: none;
+  }
+}
+
+/* ---------- Callouts: flat, with a vertical rule ---------- */
+
+div.callout {
+  border: 0 !important;
+  border-left: 2px solid var(--ukceh-rule) !important;
+  border-radius: 0;
+  background: var(--ukceh-panel);
+}
+
+div.callout .callout-header {
+  background: transparent !important;
+  border: 0;
+}
+
+div.callout .callout-icon-container {
+  display: none;
+}
+
+div.callout .callout-title-container {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Tables and quotes ---------- */
+
+#quarto-content main table {
+  --bs-table-bg: transparent;
+  border-top: 1px solid var(--ukceh-rule);
+}
+
+#quarto-content main table th {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ukceh-rule) !important;
+}
+
+#quarto-content main table td,
+#quarto-content main table th {
+  padding: 0.85rem 1rem 0.85rem 0;
+}
+
+#quarto-content main blockquote {
+  border-left: 2px solid var(--ukceh-rule);
+  color: var(--ukceh-muted);
+  font-size: 1rem;
+}
+
+/* ---------- Footer ---------- */
+
+.nav-footer {
+  min-height: 0;
+  padding: 2rem 0;
+  background: var(--ukceh-black);
+  color: rgba(255, 255, 255, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.85rem;
+}
+
+.nav-footer a {
+  color: var(--ukceh-white);
+}
+
+.nav-footer a:hover {
+  color: var(--ukceh-data);
+}
+
+.nav-footer .footer-logo {
+  height: 40px;
+  width: auto;
+}

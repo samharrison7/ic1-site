@@ -1,0 +1,68 @@
+# UKCEH brand, following UKCEH Brand Guidelines 2.0 (2026).
+# Reference: https://posit-dev.github.io/brand-yml/brand/
+# Source assets: brand-source/UKCEH_Brand_Guidelines.pdf and brand-source/logos/.
+
+meta:
+  name:
+    full: UK Centre for Ecology & Hydrology
+    short: UKCEH
+  link:
+    home: https://www.ceh.ac.uk/
+
+logo:
+  images:
+    # The navbar is always black, so the white logo is used in both modes.
+    logo-white: assets/logos/ukceh-logo-white.png
+  medium:
+    light: logo-white
+    dark: logo-white
+
+color:
+  # Core palette (guidelines p.40). Black is the anchor colour.
+  palette:
+    black: "#000000"
+    white: "#FFFFFF"
+    air: "#D6EAE6"
+    water: "#477AE2"
+    land: "#90A968"
+    earth: "#D7B7AA"
+    data: "#DBFE52"
+    # Tints (guidelines p.42): supporting contexts only, never for text.
+    air-75: "#DFEFEA"
+    air-50: "#EBF5F4"
+    air-25: "#F5F9F7"
+    water-75: "#7A9AD0"
+    water-50: "#A4BAE1"
+    water-25: "#D1DBF1"
+    land-75: "#ADBE8E"
+    land-50: "#C6D3B4"
+    land-25: "#E1EAD9"
+    earth-75: "#E1C9BF"
+    earth-50: "#EBDBD4"
+    earth-25: "#F5EDEA"
+    data-75: "#DEE276"
+    data-50: "#E7EAA6"
+    data-25: "#F5F5D3"
+  foreground:
+    light: black
+    dark: white
+  background:
+    light: white
+    dark: black
+  primary:
+    light: black
+    dark: data
+  secondary:
+    light: black
+    dark: white
+
+# Brand typeface is Suisse International; the approved fallback is Arial.
+# The full font stack is set in styles.css, so no web fonts are loaded here.
+typography:
+  headings:
+    weight: 500
+  link:
+    color:
+      light: black
+      dark: data
+    decoration: underline

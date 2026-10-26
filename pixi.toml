@@ -1,0 +1,15 @@
+[project]
+authors = ["Sam Harrison <samharrison.xg@gmail.com>"]
+channels = ["conda-forge"]
+description = "UKCEH at the first International Conference of the Global Framework on Chemicals (IC1)"
+name = "ic1-site"
+platforms = ["linux-64", "osx-arm64", "osx-64", "win-64"]
+version = "0.1.0"
+
+[tasks]
+preview = "quarto preview --port 4200"
+render = "quarto render"
+publish = "quarto publish gh-pages"
+
+[dependencies]
+quarto = ">=1.9.38,<2"

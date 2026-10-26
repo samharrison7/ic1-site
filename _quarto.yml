@@ -1,0 +1,31 @@
+project:
+  type: website
+  output-dir: _output
+
+brand: _brand.yml
+
+website:
+  title: "UKCEH at IC1"
+  description: "UKCEH's contribution to the first International Conference of the Global Framework on Chemicals"
+  favicon: assets/logos/ukceh-avatar.png
+  navbar:
+    logo: assets/logos/ukceh-logo-white.png
+    logo-alt: "UK Centre for Ecology & Hydrology"
+    title: "IC1"
+    background: "#000000"
+    foreground: "#FFFFFF"
+  page-footer:
+    left: |
+      <a href="https://www.ceh.ac.uk/"><img src="/assets/logos/ukceh-logo-tagline-white.png" class="footer-logo" alt="UK Centre for Ecology & Hydrology. Our planet. Decoded."></a>
+    right: |
+      UKCEH at IC1 · [UK Centre for Ecology & Hydrology](https://www.ceh.ac.uk/)
+
+format:
+  html:
+    toc: false
+    respect-user-color-scheme: true
+    title-block-banner: "#000000"
+    title-block-banner-color: "#FFFFFF"
+    css: styles.css
+
+link-external-newwindow: true
