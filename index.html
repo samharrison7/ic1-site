@@ -284,10 +284,29 @@ background: #000000;
     <span class="navbar-title">IC1</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools tools-end">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./monitoring.html"> 
+<span class="menu-text">Monitoring</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./analysis.html"> 
+<span class="menu-text">Analysis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./actions.html"> 
+<span class="menu-text">Actions</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -339,30 +358,60 @@ background: #000000;
 <div class="link-card">
 <p><img src="assets/images/monitoring.jpg" class="link-card-photo img-fluid" alt=""></p>
 <p><span class="label">Monitoring</span></p>
-<p><span class="link-card-title"><a href="#">Monitoring chemicals in the environment</a></span></p>
+<p><span class="link-card-title"><a href="./monitoring.html">Monitoring chemicals in the environment</a></span></p>
 <p>How long-term monitoring data can track progress against the Framework’s targets.</p>
 </div>
 <div class="link-card">
 <p><img src="assets/images/research.jpg" class="link-card-photo img-fluid" alt=""></p>
 <p><span class="label">Laboratories</span></p>
-<p><span class="link-card-title"><a href="#">Advanced chemical analysis</a></span></p>
+<p><span class="link-card-title"><a href="./analysis.html">Advanced chemical analysis</a></span></p>
 <p>UKCEH Analytical Chemistry labs provide high-quality data across a range of contaminants and matrices.</p>
 </div>
 <div class="link-card">
 <p><img src="assets/images/pollinators.jpg" class="link-card-photo img-fluid" alt=""></p>
 <p><span class="label">Policy</span></p>
-<p><span class="link-card-title"><a href="#">Prioritising actions</a></span></p>
+<p><span class="link-card-title"><a href="./actions.html">Prioritising actions</a></span></p>
 <p>Integrated modelling and monitoring to assess the effectiveness of policy options and interventions in reducing pollution.</p>
 </div>
 <div class="link-card">
 <p><img src="assets/images/data.jpg" class="link-card-photo img-fluid" alt=""></p>
 <p><span class="label">Data</span></p>
-<p><span class="link-card-title"><a href="#">Environmental Information Data Centre</a></span></p>
+<p><span class="link-card-title"><a href="https://eidc.ceh.ac.uk">Environmental Information Data Centre</a></span></p>
 <p>Open datasets on chemicals, pollutants and their effects on ecosystems.</p>
 </div>
 </div>
+</section>
+<section id="work-with-us" class="level2">
+<h2 class="anchored" data-anchor-id="work-with-us">Work with us</h2>
+<p>UKCEH will be in Geneva for IC1, 16–20 November 2026. We welcome conversations with governments, international organisations, researchers and industry about environmental monitoring, chemical analysis and modelling to support the Global Framework on Chemicals. Speak to our delegation at the conference, or contact us at any time.</p>
+<p><a href="mailto:enquiries@ceh.ac.uk" class="cta">Email enquiries@ceh.ac.uk</a></p>
+<section id="our-delegation" class="level3">
+<h3 class="anchored" data-anchor-id="our-delegation">Our delegation</h3>
+<div class="team-grid">
+<div class="person">
+<p><img src="assets/images/team-sam-harrison.jpg" class="person-photo img-fluid" alt="Sam Harrison"></p>
+<p><span class="person-name">Sam Harrison</span></p>
+<p><span class="person-role">Environmental Modeller</span></p>
+</div>
+<div class="person">
+<p><img src="assets/images/team-richard-cross.jpg" class="person-photo img-fluid" alt="Richard Cross"></p>
+<p><span class="person-name">Richard Cross</span></p>
+<p><span class="person-role">Pollution Scientist</span></p>
+</div>
+<div class="person">
+<p><img src="assets/images/team-heather-carter.jpg" class="person-photo img-fluid" alt="Heather Carter"></p>
+<p><span class="person-name">Heather Carter</span></p>
+<p><span class="person-role">Analytical Chemist</span></p>
+</div>
+<div class="person">
+<p><img src="assets/images/team-gloria-dos-santos-pereira.jpg" class="person-photo img-fluid" alt="Glória Dos Santos Pereira"></p>
+<p><span class="person-name">Glória Dos Santos Pereira</span></p>
+<p><span class="person-role">Head of Analytical Chemistry</span></p>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -452,7 +501,7 @@ background: #000000;
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/samharrison7\.github\.io\/ic1-site\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

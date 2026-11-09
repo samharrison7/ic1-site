@@ -1,5 +1,33 @@
 [
   {
+    "objectID": "analysis.html",
+    "href": "analysis.html",
+    "title": "Advanced chemical analysis",
+    "section": "",
+    "text": "UKCEH’s laboratories provide high-quality data on chemicals and pollutants in the environment, from routine analysis of contaminants in water, soil and wildlife to imaging individual particles at the nanoscale."
+  },
+  {
+    "objectID": "analysis.html#analytical-chemistry-laboratories",
+    "href": "analysis.html#analytical-chemistry-laboratories",
+    "title": "Advanced chemical analysis",
+    "section": "Analytical Chemistry laboratories",
+    "text": "Analytical Chemistry laboratories\nPlaceholder: introduce the Analytical Chemistry laboratories"
+  },
+  {
+    "objectID": "analysis.html#coremis",
+    "href": "analysis.html#coremis",
+    "title": "Advanced chemical analysis",
+    "section": "CoreMiS",
+    "text": "CoreMiS\n\n\n\nThe RISE-EDS microscope (left) and a Zeiss light microscope (right) at CoreMiS.\n\n\nThe Centre for Multimodal Correlative Microscopy and Spectroscopy (CoreMiS) is the first platform in the UK dedicated to micro-spectroscopic analysis of environmental samples by Raman Imaging and Spectroscopy with Scanning Electron Microscopy and Energy Dispersive X-ray Spectroscopy (RISE-EDS).\nRISE-EDS allows us to see in tiny detail chemical reactions in water, atmosphere, soil and plants.\nDespite the recognition of the common importance of nanoscale phenomena for governing the behaviour of pollutants, scientists to date have relied on measurements made in bulk or, at best, at the microscale to infer these critical nanoscale processes. Without nanoscale understanding, it will remain challenging to identify, understand and manage exposure to environmental pollutants and the resulting health and ecological impacts."
+  },
+  {
+    "objectID": "analysis.html#the-microplastics-analysis-facility",
+    "href": "analysis.html#the-microplastics-analysis-facility",
+    "title": "Advanced chemical analysis",
+    "section": "The Microplastics Analysis Facility",
+    "text": "The Microplastics Analysis Facility\nThe purpose of the Microplastics Analysis Facility is to detect the presence of plastics in the environment so that researchers can understand their fate, bioavailability and interactions with wildlife. This research helps governments, consumers and industry to tackle the growing pollution and harm caused by plastic litter and microplastic particles in the environment – in our soils, freshwaters, oceans and food chains.\n\n\n\nMicroplastics in moss under the microscope.\n\n\nThe facility has undertaken work across public and private sectors investigating the prevalence of microplastics in our natural world. For example, we identified the widespread deposition of microplastics from the air across rural areas of the United Kingdom, as part of the Working Group on Effects (WGE) of the Convention on Long-range Transboundary Air Pollution (LRTAP). Baseline assessments such as this, and our work investigating microplastics in the UK water industry, are essential in tracking progress against societal, government and industry priorities, to reduce the emissions and potential harm of plastics and microplastics in the environment.\nBack to UKCEH at IC1"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Global Framework on Chemicals",
@@ -19,5 +47,61 @@
     "title": "Global Framework on Chemicals",
     "section": "Find Out More",
     "text": "Find Out More\n\n\n\nMonitoring\nMonitoring chemicals in the environment\nHow long-term monitoring data can track progress against the Framework’s targets.\n\n\n\nLaboratories\nAdvanced chemical analysis\nUKCEH Analytical Chemistry labs provide high-quality data across a range of contaminants and matrices.\n\n\n\nPolicy\nPrioritising actions\nIntegrated modelling and monitoring to assess the effectiveness of policy options and interventions in reducing pollution.\n\n\n\nData\nEnvironmental Information Data Centre\nOpen datasets on chemicals, pollutants and their effects on ecosystems."
+  },
+  {
+    "objectID": "index.html#work-with-us",
+    "href": "index.html#work-with-us",
+    "title": "Global Framework on Chemicals",
+    "section": "Work with us",
+    "text": "Work with us\nUKCEH will be in Geneva for IC1, 16–20 November 2026. We welcome conversations with governments, international organisations, researchers and industry about environmental monitoring, chemical analysis and modelling to support the Global Framework on Chemicals. Speak to our delegation at the conference, or contact us at any time.\nEmail enquiries@ceh.ac.uk\n\nOur delegation\n\n\n\nSam Harrison\nEnvironmental Modeller\n\n\n\nRichard Cross\nPollution Scientist\n\n\n\nHeather Carter\nAnalytical Chemist\n\n\n\nGlória Dos Santos Pereira\nHead of Analytical Chemistry"
+  },
+  {
+    "objectID": "monitoring.html",
+    "href": "monitoring.html",
+    "title": "Monitoring chemicals in the environment",
+    "section": "",
+    "text": "Knowing whether the Global Framework on Chemicals is working means measuring chemicals in the environment consistently, over decades. UKCEH runs some of the longest-running chemical monitoring schemes in the world. They detect emerging threats to wildlife and show whether restrictions on harmful chemicals are delivering the intended benefits."
+  },
+  {
+    "objectID": "monitoring.html#predatory-bird-monitoring-scheme",
+    "href": "monitoring.html#predatory-bird-monitoring-scheme",
+    "title": "Monitoring chemicals in the environment",
+    "section": "Predatory Bird Monitoring Scheme",
+    "text": "Predatory Bird Monitoring Scheme\nThe Predatory Bird Monitoring Scheme (PBMS) tracks contaminants in the livers and eggs of predatory birds across Britain. Birds of prey sit at the top of food chains, where persistent chemicals accumulate, which makes them sensitive sentinels for the wider environment.\nThe scheme was set up in 1962 by the Nature Conservancy at Monks Wood to study the effects of organochlorine insecticides and organomercury fungicides on birds and mammals. That research contributed to these chemicals being banned from farming in Britain and elsewhere, and declining residues in birds and eggs then showed that the bans were working. PBMS is the longest-running scheme of its kind anywhere in the world.\nSince then, the scheme has expanded as new concerns have emerged. It now monitors:\n\nAnticoagulant rodenticides in barn owls (since 1983), kestrels and red kites\nLead, mercury and 15 other elements in red kites, sparrowhawks and gannet eggs\nBrominated flame retardants (PBDEs) in otters and sparrowhawk eggs\nPFAS (“forever chemicals”) in common buzzards\n\nMembers of the public normally send in birds of prey they find dead, and the scheme receives up to 400 carcasses and 200 eggs each year. Public submissions are currently paused because of avian influenza, so the team is working with wildlife professionals and trained citizen scientists to collect birds instead. Samples dating back to the late 1960s are kept in a tissue archive of more than 37,000 samples, which means chemicals that were not recognised as a concern at the time can still be measured in historical samples.\nPBMS data feed directly into policy. The scheme reports annually on rodenticides in barn owls for the UK Rodenticide Stewardship regime. Its team also led the design of the interim indicator on managing exposure to chemicals for the UK Government’s 25 Year Environment Plan. PBMS is funded by the Natural Environment Research Council (through UKCEH’s National Capability programme), Natural England and the Campaign for Responsible Rodenticide Use."
+  },
+  {
+    "objectID": "monitoring.html#national-honey-monitoring-scheme",
+    "href": "monitoring.html#national-honey-monitoring-scheme",
+    "title": "Monitoring chemicals in the environment",
+    "section": "National Honey Monitoring Scheme",
+    "text": "National Honey Monitoring Scheme\nThe National Honey Monitoring Scheme (NHMS) works with beekeepers to use honeybees as monitors of the UK countryside. Honeybees forage over large areas around their hives, so each jar of honey captures what is happening across the surrounding landscape.\nSince 2018, beekeepers across the UK have sent in honey samples, growing from 202 samples in the first year to nearly 1,500 by 2022. The scheme now sends out up to 1,000 sampling packs each year. Each sample can be analysed in several ways:\n\nPollen DNA barcoding identifies which plants the bees have been foraging on, by region and season\nPesticide screening of a subset of samples measures residues of around 90 pesticides\nHive records from beekeepers, including honey yield, colony losses and disease, link exposure to colony health\nSatellite mapping of crops and habitats around each apiary connects results to land use\n\nThe results show that pesticides are ubiquitous in honey. Most samples contain at least one pesticide, and some contain more than 15. Banned pesticides are still regularly detected: the neonicotinoid clothianidin, banned since 2018, was still commonly found in 2021 samples. Fungicides and herbicides pose low risk to honeybees, but insecticides remain the main concern. Defra commissioned UKCEH in 2020 to pilot pesticide monitoring using NHMS honey."
+  },
+  {
+    "objectID": "monitoring.html#other-long-term-monitoring",
+    "href": "monitoring.html#other-long-term-monitoring",
+    "title": "Monitoring chemicals in the environment",
+    "section": "Other long-term monitoring",
+    "text": "Other long-term monitoring\nUKCEH runs or contributes to several other long-term monitoring programmes that track chemicals and their effects across air, water, soil and wildlife.\n\n\n\nProgramme\nRunning since\nRelevance to chemicals\n\n\n\n\nEnvironmental Change Network\n1992\nThe UK’s long-term ecosystem research network, measuring physical, chemical and biological change at terrestrial and freshwater sites\n\n\nUK Eutrophying and Acidifying Atmospheric Pollutants network\n1986\nRun by UKCEH and Ricardo for the Environment Agency, Defra and the devolved administrations. Tracks long-term trends in air pollutants such as ammonia at rural and remote sites\n\n\nCountryside Survey\n1978\nRepeat national surveys of soil chemistry, including pH, carbon and metals. Soil acidity has fallen alongside sulfur deposition\n\n\nUK Upland Waters Monitoring Network\n1988\nLakes and streams tracking recovery from acid rain, and the effects of nitrogen deposition and climate change\n\n\nThames Initiative\n2009\nWeekly water quality monitoring of the River Thames and 15 tributaries, including nutrients and metals\n\n\nUK Pollinator Monitoring Scheme\n2017\nThe world’s first national scheme to systematically measure pollinator abundance, providing context for the effects of pesticides\n\n\n\nBack to UKCEH at IC1"
+  },
+  {
+    "objectID": "actions.html",
+    "href": "actions.html",
+    "title": "Prioritising actions",
+    "section": "",
+    "text": "Regulators, policymakers and governments need evidence about which chemicals cause the most harm, where and to what, and whether the measures they take are working. For more than sixty years, UKCEH science has provided that evidence and has led directly to regulatory action to reduce chemical pollution."
+  },
+  {
+    "objectID": "actions.html#from-evidence-to-action",
+    "href": "actions.html#from-evidence-to-action",
+    "title": "Prioritising actions",
+    "section": "From evidence to action",
+    "text": "From evidence to action\n\nOrganochlorine insecticides\n\n1960s\nEvidence. In the 1960s, research at Monks Wood linked organochlorine insecticides such as DDT and dieldrin, and organomercury fungicides, to declines in birds of prey. The Predatory Bird Monitoring Scheme, established in 1962, measured these chemicals in birds and their eggs.\nAction. This evidence contributed to these chemicals being banned from farming in Britain and elsewhere. Monitoring then showed residues falling in birds and eggs, confirming that the bans were working.\n\n\nNeonicotinoid insecticides\n\n2016–2018\nEvidence. A UKCEH-led analysis of 18 years of national records for 62 wild bee species linked neonicotinoid use on oilseed rape to long-term population declines. Species that forage on oilseed rape were affected three times more than other species. In 2017, a UKCEH-led field experiment across the UK, Germany and Hungary found that neonicotinoid-treated crops harmed honeybees and wild bees, although effects varied between countries.\nAction. In late 2017, the UK’s Expert Committee on Pesticides advised ministers that the UKCEH field study “significantly adds to the evidence base”, and that the risk to pollinators was greater than previously thought. In April 2018, EU member states, including the UK, voted to ban all outdoor uses of the neonicotinoids clothianidin, imidacloprid and thiamethoxam. The National Honey Monitoring Scheme continues to track neonicotinoid residues in the environment after the ban.\n\n\nAnticoagulant rodenticides\n\n2016 onwards\nEvidence. The Predatory Bird Monitoring Scheme has measured second-generation anticoagulant rodenticides in barn owls since 1983, showing how widely these rat poisons pass through food chains to non-target wildlife.\nAction. Since 2016, the scheme has reported annually on rodenticides in barn owls for the UK Rodenticide Stewardship regime, which aims to reduce risks to wildlife. Its data were used in the regime’s five-year review.\n\n\nLead ammunition\n\n2021–2029\nEvidence. The Predatory Bird Monitoring Scheme analysed lead in 220 common buzzards found dead between 2007 and 2018. Lead isotope analysis showed that 57% of the lead in their livers came from shotgun pellets, rising to 89% in birds with the highest exposure. This study and PBMS data on sparrowhawks were cited in the Health and Safety Executive’s assessment of the risks of lead ammunition under UK REACH.\nAction. In July 2025, the UK Government announced a ban on lead ammunition. The sale and use of lead shot and large-calibre lead bullets for live quarry shooting will end on 1 April 2029.\n\n\nAcid rain and air pollution\n\n1990s onwards\nEvidence. UKCEH hosts the UK National Focal Centre for critical loads, which calculates and maps the levels of acid and nitrogen deposition that UK habitats can tolerate without harm. These maps underpin UK policy on acidification and eutrophication, and the UK’s contribution to international agreements such as the Gothenburg Protocol, which set national emission ceilings for sulfur dioxide, nitrogen oxides and ammonia.\nAction. As emissions have fallen, the area of acid-sensitive UK habitats receiving more acid deposition than they can tolerate fell by 28.5% between 1995 and 2014. Long-term monitoring of upland lakes and streams shows that their water chemistry is recovering."
+  },
+  {
+    "objectID": "actions.html#assessing-policy-options",
+    "href": "actions.html#assessing-policy-options",
+    "title": "Prioritising actions",
+    "section": "Assessing policy options",
+    "text": "Assessing policy options\nBefore acting, decision-makers need to know which measures will reduce pollution the most, in which parts of the environment, and at what cost. UKCEH links models of chemical emissions, environmental fate and exposure, so that policy options can be compared before they are put in place.\n\nExample: intentionally added microplastics\nDefra option appraisal · 2025\nMicroplastics are intentionally added to many products, from detergents and cosmetics to the rubber infill used on synthetic sports pitches. Unlike microplastics from tyre wear or textiles, these can be controlled at source. For a Defra option appraisal supporting UK REACH, UKCEH and Economics for the Environment Consultancy (eftec) estimated UK emissions, exposure, risk and impacts of intentionally added microplastics to 2043. They then compared six options for reducing them, with the results published in Integrated Environmental Assessment and Management.\n\n\n160,000 t\nIntentionally added microplastics used in the UK, 2024–2043\n\n\n50,000 t\nEmitted to the environment over the same period\n\n\n6\nPolicy options compared, from broad restrictions to targeted measures\n\n\n£9/kg\nCost of the most cost-effective option: containing sports pitch infill\n\n\nThe UTOPIA model traced emissions from products to soils, rivers and seas. Synthetic sports surfaces were the largest single source. Because about 99% of microplastics reaching wastewater treatment are retained in sewage sludge, and most sludge is spread on farmland, agricultural soils receive the most overall.\nThe six options fell into three groups:\n\nRestrictions on use (broad, targeted or aligned with the EU’s REACH restriction) gave the largest reductions in exposure across the environment, but at an average cost of £261–601 million per year. RMO 1A–1C.\nContainment measures on synthetic sports pitches reduced exposure from sports surfaces as much as the restrictions did, for about £6 million per year. This was the most cost-effective option. RMO 2.\nReducing the amount of sewage sludge spread on land, by 95% or 50%, mainly benefited agricultural soils, at £10–60 million per year. It would also reduce soil exposure to other contaminants in sludge, such as pharmaceuticals. RMO 3A–3B.\n\n\n\n\nPercentage reduction in predicted environmental concentrations of intentionally added microplastics in 2043 under each risk management option (RMO), compared with business as usual. RMO 1A–1C restrict use, RMO 2 contains sports pitch infill, and RMO 3A–3B reduce sewage sludge spread on land. Figure from Uluseker et al. (2026), CC BY 4.0.\n\n\nNo single option was best on every measure, but combining them, for example by containing sports pitch infill alongside a targeted restriction, could achieve most of the benefit at much lower cost. Defra is considering the findings, which will guide future decisions under UK REACH.\n\nCase study photos from Wikimedia Commons, cropped: sparrowhawk by Caroline Legg, CC BY 4.0; bumblebee on oilseed rape by Rasbak, CC BY-SA 3.0; barn owl by Dannymoore1973, CC0; common buzzard by Alexis Lours, CC BY 4.0; Lochnagar by Scott Cormie, CC BY-SA 2.0.\n\nBack to UKCEH at IC1"
   }
 ]
