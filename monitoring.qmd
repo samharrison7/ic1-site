@@ -1,0 +1,80 @@
+---
+title: "Monitoring chemicals in the environment"
+subtitle: "Monitoring"
+description: "Long-term evidence on where chemicals end up, what they affect and whether controls are working"
+---
+
+::: {.lead}
+Knowing whether the Global Framework on Chemicals is working means measuring chemicals in the environment consistently, over decades. UKCEH runs some of the longest-running chemical monitoring schemes in the world. They detect emerging threats to wildlife and show whether restrictions on harmful chemicals are delivering the intended benefits.
+:::
+
+::: {.stat-grid}
+::: {.stat}
+1962
+
+Predatory Bird Monitoring Scheme established
+:::
+
+::: {.stat}
+37,000+
+
+Samples in the PBMS tissue archive
+:::
+
+::: {.stat}
+~90
+
+Pesticides screened for in honey samples
+:::
+
+::: {.stat}
+1,000
+
+Honey sample packs sent to beekeepers each year
+:::
+:::
+
+## Predatory Bird Monitoring Scheme
+
+The [Predatory Bird Monitoring Scheme (PBMS)](https://pbms.ceh.ac.uk/) tracks contaminants in the livers and eggs of predatory birds across Britain. Birds of prey sit at the top of food chains, where persistent chemicals accumulate, which makes them sensitive sentinels for the wider environment.
+
+The scheme was set up in 1962 by the Nature Conservancy at Monks Wood to study the effects of organochlorine insecticides and organomercury fungicides on birds and mammals. That research contributed to these chemicals being banned from farming in Britain and elsewhere, and declining residues in birds and eggs then showed that the bans were working. PBMS is the longest-running scheme of its kind anywhere in the world.
+
+Since then, the scheme has expanded as new concerns have emerged. It now monitors:
+
+- **Anticoagulant rodenticides** in barn owls (since 1983), kestrels and red kites
+- **Lead, mercury and 15 other elements** in red kites, sparrowhawks and gannet eggs
+- **Brominated flame retardants (PBDEs)** in otters and sparrowhawk eggs
+- **PFAS ("forever chemicals")** in common buzzards
+
+Members of the public normally send in birds of prey they find dead, and the scheme receives up to 400 carcasses and 200 eggs each year. Public submissions are currently paused because of avian influenza, so the team is working with wildlife professionals and trained citizen scientists to collect birds instead. Samples dating back to the late 1960s are kept in a tissue archive of more than 37,000 samples, which means chemicals that were not recognised as a concern at the time can still be measured in historical samples.
+
+PBMS data feed directly into policy. The scheme reports annually on rodenticides in barn owls for the UK Rodenticide Stewardship regime. Its team also led the design of the interim indicator on managing exposure to chemicals for the UK Government's 25 Year Environment Plan. PBMS is funded by the Natural Environment Research Council (through UKCEH's National Capability programme), Natural England and the Campaign for Responsible Rodenticide Use.
+
+## National Honey Monitoring Scheme
+
+The [National Honey Monitoring Scheme (NHMS)](https://honey-monitoring.ac.uk/) works with beekeepers to use honeybees as monitors of the UK countryside. Honeybees forage over large areas around their hives, so each jar of honey captures what is happening across the surrounding landscape.
+
+Since 2018, beekeepers across the UK have sent in honey samples, growing from 202 samples in the first year to nearly 1,500 by 2022. The scheme now sends out up to 1,000 sampling packs each year. Each sample can be analysed in several ways:
+
+- **Pollen DNA barcoding** identifies which plants the bees have been foraging on, by region and season
+- **Pesticide screening** of a subset of samples measures residues of around 90 pesticides
+- **Hive records** from beekeepers, including honey yield, colony losses and disease, link exposure to colony health
+- **Satellite mapping** of crops and habitats around each apiary connects results to land use
+
+The results show that pesticides are ubiquitous in honey. Most samples contain at least one pesticide, and some contain more than 15. Banned pesticides are still regularly detected: the neonicotinoid clothianidin, banned since 2018, was still commonly found in 2021 samples. Fungicides and herbicides pose low risk to honeybees, but insecticides remain the main concern. Defra commissioned UKCEH in 2020 to pilot pesticide monitoring using NHMS honey.
+
+## Other long-term monitoring
+
+UKCEH runs or contributes to several other long-term monitoring programmes that track chemicals and their effects across air, water, soil and wildlife.
+
+| Programme | Running since | Relevance to chemicals |
+|-----------|---------------|------------------------|
+| [Environmental Change Network](https://ecn.ac.uk/) | 1992 | The UK's long-term ecosystem research network, measuring physical, chemical and biological change at terrestrial and freshwater sites |
+| [UK Eutrophying and Acidifying Atmospheric Pollutants network](https://uk-air.defra.gov.uk/networks/network-info?view=ukeap) | 1986 | Run by UKCEH and Ricardo for the Environment Agency, Defra and the devolved administrations. Tracks long-term trends in air pollutants such as ammonia at rural and remote sites |
+| [Countryside Survey](https://www.ceh.ac.uk/our-science/projects/countryside-survey) | 1978 | Repeat national surveys of soil chemistry, including pH, carbon and metals. Soil acidity has fallen alongside sulfur deposition |
+| [UK Upland Waters Monitoring Network](https://uwmn.uk/) | 1988 | Lakes and streams tracking recovery from acid rain, and the effects of nitrogen deposition and climate change |
+| [Thames Initiative](https://essd.copernicus.org/articles/10/1637/2018/) | 2009 | Weekly water quality monitoring of the River Thames and 15 tributaries, including nutrients and metals |
+| [UK Pollinator Monitoring Scheme](https://ukpoms.org.uk/) | 2017 | The world's first national scheme to systematically measure pollinator abundance, providing context for the effects of pesticides |
+
+[Back to UKCEH at IC1](index.qmd){.cta}

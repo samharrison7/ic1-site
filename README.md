@@ -13,9 +13,18 @@ pixi run render    # build the site into _output/ for deployment
 
 Pixi installs Quarto into a project-local environment (`.pixi/`) on first run.
 
-## Editing the page
+## Pages
 
-All content lives in `index.qmd`:
+- `index.qmd`: the home page, with links to the pages below
+- `monitoring.qmd`: Monitoring chemicals in the environment
+- `analysis.qmd`: Advanced chemical analysis (placeholder)
+- `actions.qmd`: Prioritising actions
+
+Each subpage's `subtitle` is shown as the bracket label above its title. On the actions page, each case study is a `### Heading {.case}` section, which renders as a card.
+
+## Editing the home page
+
+The home page lives in `index.qmd`:
 
 - The title banner comes from the `title`, `subtitle` (shown as the bracket label) and `description` front matter.
 - The **About** section's first paragraph is wrapped in `::: {.lead}` for larger intro text.

@@ -1,0 +1,33 @@
+---
+title: "Advanced chemical analysis"
+subtitle: "Laboratories"
+description: "High-quality data across a range of contaminants and matrices"
+---
+
+::: {.lead}
+UKCEH's laboratories provide high-quality data on chemicals and pollutants in the environment, from routine analysis of contaminants in water, soil and wildlife to imaging individual particles at the nanoscale.
+:::
+
+## Analytical Chemistry laboratories
+
+[Placeholder: introduce the Analytical Chemistry laboratories]{.muted}
+
+## CoreMiS
+
+![The RISE-EDS microscope (left) and a Zeiss light microscope (right) at CoreMiS.](assets/images/coremis-equipment.jpg){.photo fig-alt="A Zeiss scanning electron microscope with attached Raman spectroscopy modules and two computer screens showing spectral images, next to a Zeiss light microscope with a camera mounted on top."}
+
+The [Centre for Multimodal Correlative Microscopy and Spectroscopy (CoreMiS)](https://www.ceh.ac.uk/solutions/laboratory-services/uk-centre-multimodal-correlative-microscopy-and-spectroscopy-advanced-environmental-science) is the first platform in the UK dedicated to micro-spectroscopic analysis of environmental samples by Raman Imaging and Spectroscopy with Scanning Electron Microscopy and Energy Dispersive X-ray Spectroscopy (RISE-EDS).
+
+RISE-EDS allows us to see in tiny detail chemical reactions in water, atmosphere, soil and plants.
+
+Despite the recognition of the common importance of nanoscale phenomena for governing the behaviour of pollutants, scientists to date have relied on measurements made in bulk or, at best, at the microscale to infer these critical nanoscale processes. Without nanoscale understanding, it will remain challenging to identify, understand and manage exposure to environmental pollutants and the resulting health and ecological impacts.
+
+## The Microplastics Analysis Facility
+
+The purpose of the [Microplastics Analysis Facility](https://www.ceh.ac.uk/solutions/laboratory-services/microplastics-analysis) is to detect the presence of plastics in the environment so that researchers can understand their fate, bioavailability and interactions with wildlife. This research helps governments, consumers and industry to tackle the growing pollution and harm caused by plastic litter and microplastic particles in the environment – in our soils, freshwaters, oceans and food chains.
+
+![Microplastics in moss under the microscope.](assets/images/microplastics-moss.jpg){.photo fig-align="left" fig-alt="A greyscale electron microscope image of curled moss leaves, with small particles scattered on the surface beside them."}
+
+The facility has undertaken work across public and private sectors investigating the prevalence of microplastics in our natural world. For example, we identified the widespread deposition of microplastics from the air across rural areas of the United Kingdom, as part of the Working Group on Effects (WGE) of the Convention on Long-range Transboundary Air Pollution (LRTAP). Baseline assessments such as this, and our work investigating microplastics in the UK water industry, are essential in tracking progress against societal, government and industry priorities, to reduce the emissions and potential harm of plastics and microplastics in the environment.
+
+[Back to UKCEH at IC1](index.qmd){.cta}

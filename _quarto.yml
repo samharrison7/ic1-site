@@ -14,6 +14,13 @@ website:
     title: "IC1"
     background: "#000000"
     foreground: "#FFFFFF"
+    left:
+      - text: "Monitoring"
+        href: monitoring.qmd
+      - text: "Analysis"
+        href: analysis.qmd
+      - text: "Actions"
+        href: actions.qmd
   page-footer:
     left: |
       <a href="https://www.ceh.ac.uk/"><img src="/assets/logos/ukceh-logo-tagline-white.png" class="footer-logo" alt="UK Centre for Ecology & Hydrology. Our planet. Decoded."></a>

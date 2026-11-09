@@ -22,7 +22,7 @@ Healthy environments underpin healthy economies, resilient communities and susta
 
 [Monitoring]{.label}
 
-[[Monitoring chemicals in the environment](#)]{.link-card-title}
+[[Monitoring chemicals in the environment](monitoring.qmd)]{.link-card-title}
 
 How long-term monitoring data can track progress against the Framework's targets.
 :::
@@ -32,7 +32,7 @@ How long-term monitoring data can track progress against the Framework's targets
 
 [Laboratories]{.label}
 
-[[Advanced chemical analysis](#)]{.link-card-title}
+[[Advanced chemical analysis](analysis.qmd)]{.link-card-title}
 
 UKCEH Analytical Chemistry labs provide high-quality data across a range of contaminants and matrices.
 :::
@@ -42,7 +42,7 @@ UKCEH Analytical Chemistry labs provide high-quality data across a range of cont
 
 [Policy]{.label}
 
-[[Prioritising actions](#)]{.link-card-title}
+[[Prioritising actions](actions.qmd)]{.link-card-title}
 
 Integrated modelling and monitoring to assess the effectiveness of policy options and interventions in reducing pollution.
 :::
@@ -52,10 +52,52 @@ Integrated modelling and monitoring to assess the effectiveness of policy option
 
 [Data]{.label}
 
-[[Environmental Information Data Centre](#)]{.link-card-title}
+[[Environmental Information Data Centre](https://eidc.ceh.ac.uk)]{.link-card-title}
 
 Open datasets on chemicals, pollutants and their effects on ecosystems.
 :::
 
 
+:::
+
+## Work with us
+
+UKCEH will be in Geneva for IC1, 16–20 November 2026. We welcome conversations with governments, international organisations, researchers and industry about environmental monitoring, chemical analysis and modelling to support the Global Framework on Chemicals. Speak to our delegation at the conference, or contact us at any time.
+
+[Email enquiries@ceh.ac.uk](mailto:enquiries@ceh.ac.uk){.cta}
+
+### Our delegation
+
+::: {.team-grid}
+::: {.person}
+![](assets/images/team-sam-harrison.jpg){.person-photo fig-alt="Sam Harrison"}
+
+[Sam Harrison]{.person-name}
+
+[Environmental Modeller]{.person-role}
+:::
+
+::: {.person}
+![](assets/images/team-richard-cross.jpg){.person-photo fig-alt="Richard Cross"}
+
+[Richard Cross]{.person-name}
+
+[Pollution Scientist]{.person-role}
+:::
+
+::: {.person}
+![](assets/images/team-heather-carter.jpg){.person-photo fig-alt="Heather Carter"}
+
+[Heather Carter]{.person-name}
+
+[Analytical Chemist]{.person-role}
+:::
+
+::: {.person}
+![](assets/images/team-gloria-dos-santos-pereira.jpg){.person-photo fig-alt="Glória Dos Santos Pereira"}
+
+[Glória Dos Santos Pereira]{.person-name}
+
+[Head of Analytical Chemistry]{.person-role}
+:::
 :::
