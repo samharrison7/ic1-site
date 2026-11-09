@@ -16,7 +16,7 @@ Predatory Bird Monitoring Scheme established
 :::
 
 ::: {.stat}
-37,000+
+100,000+
 
 Samples in the PBMS tissue archive
 :::
@@ -44,12 +44,12 @@ Since then, the scheme has expanded as new concerns have emerged. It now monitor
 
 - **Anticoagulant rodenticides** in barn owls (since 1983), kestrels and red kites
 - **Lead, mercury and 15 other elements** in red kites, sparrowhawks and gannet eggs
-- **Brominated flame retardants (PBDEs)** in otters and sparrowhawk eggs
+- **Brominated flame retardants (PBDEs)** in common buzzard, otters and sparrowhawk eggs
 - **PFAS ("forever chemicals")** in common buzzards
 
-Members of the public normally send in birds of prey they find dead, and the scheme receives up to 400 carcasses and 200 eggs each year. Public submissions are currently paused because of avian influenza, so the team is working with wildlife professionals and trained citizen scientists to collect birds instead. Samples dating back to the late 1960s are kept in a tissue archive of more than 37,000 samples, which means chemicals that were not recognised as a concern at the time can still be measured in historical samples.
+Members of the public normally send in birds of prey they find dead, and the scheme receives up to 400 carcasses and 200 eggs each year. Public submissions are currently paused because of avian influenza, so the team is working with wildlife professionals and trained citizen scientists to collect birds instead. Samples dating back to the late 1960s are kept in a tissue archive of more than 100,000 samples, which means chemicals that were not recognised as a concern at the time can still be measured in historical samples.
 
-PBMS data feed directly into policy. The scheme reports annually on rodenticides in barn owls for the UK Rodenticide Stewardship regime. Its team also led the design of the interim indicator on managing exposure to chemicals for the UK Government's 25 Year Environment Plan. PBMS is funded by the Natural Environment Research Council (through UKCEH's National Capability programme), Natural England and the Campaign for Responsible Rodenticide Use.
+PBMS data feed directly into policy. The scheme reports annually on rodenticides in barn owls for the UK Rodenticide Stewardship regime. Its team also led the design of the interim indicator on managing exposure to chemicals for the UK Government's 25 Year Environment Plan, for which it is the principal source of monitoring data. PBMS is funded by the Natural Environment Research Council (through UKCEH's National Capability programme), Natural England and the Campaign for Responsible Rodenticide Use.
 
 ## National Honey Monitoring Scheme
 
