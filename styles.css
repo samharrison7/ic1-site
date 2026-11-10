@@ -654,3 +654,123 @@ div.callout .callout-title-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ---------- Cookie consent banner (assets/js/consent.js) ---------- */
+
+.consent-banner {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  background: var(--ukceh-black);
+  color: var(--ukceh-white);
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.consent-banner[hidden] {
+  display: none;
+}
+
+.consent-banner:focus {
+  outline: none;
+}
+
+.consent-banner:focus-visible {
+  outline: 2px solid var(--ukceh-data);
+  outline-offset: -2px;
+}
+
+.consent-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+}
+
+.consent-text {
+  flex: 1 1 28rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.consent-text p {
+  margin: 0;
+}
+
+.consent-text .consent-title {
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.consent-banner a {
+  color: var(--ukceh-white);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.consent-banner a:hover {
+  color: var(--ukceh-data);
+}
+
+.consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Both choices are styled identically so neither is given more prominence. */
+.consent-btn {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--ukceh-white);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ukceh-white);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.consent-btn:hover,
+.consent-btn:focus-visible {
+  border-color: var(--ukceh-data);
+  background: var(--ukceh-data);
+  color: var(--ukceh-black);
+}
+
+.consent-btn:focus-visible {
+  outline: 2px solid var(--ukceh-white);
+  outline-offset: 2px;
+}
+
+@media (max-width: 575.98px) {
+  .consent-inner {
+    padding: 1rem;
+  }
+
+  .consent-actions,
+  .consent-btn {
+    width: 100%;
+  }
+}
+
+/* Footer button that reopens the banner, styled as a link. */
+.nav-footer .cookie-preferences {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ukceh-white);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.nav-footer .cookie-preferences:hover,
+.nav-footer .cookie-preferences:focus-visible {
+  color: var(--ukceh-data);
+}
