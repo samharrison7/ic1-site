@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _output
+  resources:
+    - assets/js/consent.js
 
 brand: _brand.yml
 
@@ -25,7 +27,7 @@ website:
     left: |
       <a href="https://www.ceh.ac.uk/"><img src="/assets/logos/ukceh-logo-tagline-white.png" class="footer-logo" alt="UK Centre for Ecology & Hydrology. Our planet. Decoded."></a>
     right: |
-      UKCEH at IC1 · [UK Centre for Ecology & Hydrology](https://www.ceh.ac.uk/)
+      UKCEH at IC1 · [UK Centre for Ecology & Hydrology](https://www.ceh.ac.uk/) · <button type="button" class="cookie-preferences">Cookie preferences</button>
 
 format:
   html:
@@ -34,5 +36,13 @@ format:
     title-block-banner: "#000000"
     title-block-banner-color: "#FFFFFF"
     css: styles.css
+    # Cookie consent and Google Analytics. Replace the placeholder with the
+    # GA4 measurement ID from the web team, or use data-gtm-id="GTM-..." for
+    # Google Tag Manager. See assets/js/consent.js.
+    include-in-header:
+      text: |
+        <script src="assets/js/consent.js" defer
+          data-ga-id="G-XXXXXXXXXX"
+          data-policy-url="https://www.ceh.ac.uk/about-us/policies/privacy-notice/privacy-notice-cookies-policy"></script>
 
 link-external-newwindow: true

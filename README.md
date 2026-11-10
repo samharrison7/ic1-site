@@ -33,6 +33,12 @@ The home page lives in `index.qmd`:
 
 Branding (colours, logos) is set in `_brand.yml`, and component styles in `styles.css`.
 
+## Analytics and cookie consent
+
+Google Analytics only loads after a visitor accepts it in the cookie banner (`assets/js/consent.js`). The choice is remembered for six months, and the **Cookie preferences** link in the footer reopens the banner. Rejecting after accepting deletes the Google Analytics cookies.
+
+The measurement ID is set on the script tag in `_quarto.yml` (`data-ga-id`). It is currently the placeholder `G-XXXXXXXXXX`, so the banner works but nothing is sent to Google. Replace it with the GA4 ID from the web team, or use `data-gtm-id="GTM-..."` instead for Google Tag Manager.
+
 ## Publishing to GitHub Pages
 
 ```bash
