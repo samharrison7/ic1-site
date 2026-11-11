@@ -154,6 +154,50 @@ strong {
   color: var(--ukceh-data) !important;
 }
 
+/* Theme picker (assets/js/theme.js) replaces Quarto's icon-only toggle. */
+.navbar .quarto-color-scheme-toggle {
+  display: none !important;
+}
+
+.theme-picker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 0.5rem;
+  color: var(--ukceh-white);
+  font-size: 0.9rem;
+}
+
+/* Inside the collapsed menu on small screens */
+@media (max-width: 991.98px) {
+  .theme-picker {
+    margin: 0.75rem 0 1rem;
+    padding-left: 0.6rem; /* line up with the menu links */
+  }
+}
+
+.theme-picker select {
+  color-scheme: dark;
+  appearance: none;
+  padding: 0.25rem 1.75rem 0.25rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 0;
+  background: var(--ukceh-black) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 0.6rem center;
+  color: var(--ukceh-white);
+  font: inherit;
+  cursor: pointer;
+}
+
+.theme-picker select:hover {
+  border-color: var(--ukceh-data);
+}
+
+.theme-picker select:focus-visible {
+  border-color: var(--ukceh-data);
+  outline: 2px solid var(--ukceh-data);
+  outline-offset: 2px;
+}
+
 /* ---------- Title banner ---------- */
 
 .quarto-title-banner {
