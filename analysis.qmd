@@ -5,12 +5,42 @@ description: "High-quality data across a range of contaminants and matrices"
 ---
 
 ::: {.lead}
-UKCEH's laboratories provide high-quality data on chemicals and pollutants in the environment, from routine analysis of contaminants in water, soil and wildlife to imaging individual particles at the nanoscale.
+Turning the Global Framework on Chemicals into measurable progress requires reliable evidence of chemical pollution. UKCEH's laboratories provide that evidence, from measuring trace levels of chemicals in water, soil and wildlife to imaging individual particles at the nanoscale.
 :::
 
 ## Analytical Chemistry laboratories
 
-[Placeholder: introduce the Analytical Chemistry laboratories]{.muted}
+UKCEH's analytical chemistry laboratories in Lancaster measure a wide range of pollutants in soil, sediment, water and biological samples. Our data underpin environmental monitoring and chemical risk assessment, helping policymakers, regulators and partners understand where contamination occurs and whether the remediation measures put in place are proving effective.
+
+### Chemicals we measure
+
+- **PFAS ("forever chemicals").** Quantitative analysis of approximately 50 compounds, including carboxylic acids, sulfonic acids, sulfonamides, fluorotelomers and emerging PFAS.
+- **Chemicals in plastics.** Plasticisers and tyre additives such as 6PPD, measured alongside plastic particles to give a fuller picture of plastic-related pollution.
+- **Organic contaminants.** Persistent organic pollutants, pesticides, pharmaceuticals and emerging environmental contaminants.
+- **Metals and metalloids.** Trace measurements in environmental samples to support pollution monitoring and assessment.
+- **Stable isotopes.** Isotopic analysis to support studies of environmental processes and sources.
+
+### Finding what we weren't looking for
+
+Alongside targeted analysis of known chemicals, we use non-target screening (a broad scan for unexpected or unidentified substances) to detect chemicals of growing concern, including novel and emerging PFAS, pharmaceuticals, pesticides and other chemicals.
+
+### Quality you can rely on
+
+Our laboratories are UKAS-accredited to ISO/IEC 17025:2017 and operate rigorous quality assurance, sample tracking and contamination control, so you can have confidence in the measurements that inform monitoring and decisions.
+
+### Supporting international and national programmes
+
+We contribute to many international and national programmes, helping to track progress, identify emerging risks and inform action on chemical pollution. These include:
+
+- [PARC](https://www.eu-parc.eu/), the European Partnership for the Assessment of Risks from Chemicals
+- Short-chain PFAS inter-laboratory studies
+- The [National Honey Monitoring Scheme](monitoring.qmd#national-honey-monitoring-scheme), through Defra's BEECH project
+- The [Predatory Bird Monitoring Scheme](monitoring.qmd#predatory-bird-monitoring-scheme)
+- The Chemicals Investigations Programme (CIP)
+
+### Work with us
+
+To discuss analysis for your project or monitoring programme, contact [enquiries@ceh.ac.uk](mailto:enquiries@ceh.ac.uk).
 
 ## CoreMiS
 
