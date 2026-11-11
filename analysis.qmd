@@ -12,6 +12,12 @@ Turning the Global Framework on Chemicals into measurable progress requires reli
 
 UKCEH's analytical chemistry laboratories in Lancaster measure a wide range of pollutants in soil, sediment, water and biological samples. Our data underpin environmental monitoring and chemical risk assessment, helping policymakers, regulators and partners understand where contamination occurs and whether the remediation measures put in place are proving effective.
 
+::: {.photo-pair}
+![](assets/images/lab-sample-preparation.jpg){.photo fig-alt="Gloved hands pour a liquid sample through a glass funnel, holding a test tube containing a soil sample, with glass condensers hanging above the bench."}
+
+![](assets/images/lab-mass-spectrometry.jpg){.photo fig-alt="A smiling scientist stands in a laboratory between banks of chromatography and mass spectrometry instruments, with a computer and keyboard on the bench beside her."}
+:::
+
 ### Chemicals we measure
 
 - **PFAS ("forever chemicals").** Quantitative analysis of approximately 50 compounds, including carboxylic acids, sulfonic acids, sulfonamides, fluorotelomers and emerging PFAS.

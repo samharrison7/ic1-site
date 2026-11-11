@@ -506,6 +506,31 @@ body.quarto-dark .link-card:focus-within {
   line-height: 1.5;
 }
 
+/* Two photos side by side (::: {.photo-pair}), stacked on small screens. */
+.photo-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* Each image is in its own paragraph. */
+.photo-pair p {
+  margin: 0;
+}
+
+.photo-pair img.photo {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+@media (max-width: 575.98px) {
+  .photo-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- Case studies ---------- */
 
 /* Each case study section (### Heading {.case}) is a single card. */
