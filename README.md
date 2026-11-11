@@ -33,6 +33,10 @@ The home page lives in `index.qmd`:
 
 Branding (colours, logos) is set in `_brand.yml`, and component styles in `styles.css`.
 
+## Dark and light mode
+
+The site is dark by default, because `dark` is listed before `light` under `theme` in `_quarto.yml`. Swap the order to make light the default. The **Theme** dropdown in the navbar (`assets/js/theme.js`) lets visitors choose Dark, Light or Auto (follow their device setting). It replaces Quarto's icon-only toggle, which is hidden in `styles.css`. A choice is stored in the browser only once a visitor makes one, so it doesn't need cookie consent.
+
 ## Analytics and cookie consent
 
 Google Analytics only loads after a visitor accepts it in the cookie banner (`assets/js/consent.js`). The choice is remembered for six months, and the **Cookie preferences** link in the footer reopens the banner. Rejecting after accepting deletes the Google Analytics cookies.

@@ -3,6 +3,7 @@ project:
   output-dir: _output
   resources:
     - assets/js/consent.js
+    - assets/js/theme.js
 
 brand: _brand.yml
 
@@ -32,15 +33,20 @@ website:
 format:
   html:
     toc: false
-    respect-user-color-scheme: true
+    # Dark is listed first, so it is the default colour scheme.
+    theme:
+      dark: brand
+      light: brand
     title-block-banner: "#000000"
     title-block-banner-color: "#FFFFFF"
     css: styles.css
-    # Cookie consent and Google Analytics. Replace the placeholder with the
-    # GA4 measurement ID from the web team, or use data-gtm-id="GTM-..." for
-    # Google Tag Manager. See assets/js/consent.js.
+    # theme.js: the Dark / Light / Auto picker. It has no `defer` because it
+    # must run before Quarto's colour-scheme script.
+    # consent.js: cookie consent and Google Analytics (data-ga-id), or use
+    # data-gtm-id="GTM-..." for Google Tag Manager.
     include-in-header:
       text: |
+        <script src="assets/js/theme.js"></script>
         <script src="assets/js/consent.js" defer
           data-ga-id="G-H4VBBP5P0E"
           data-policy-url="https://www.ceh.ac.uk/about-us/policies/privacy-notice/privacy-notice-cookies-policy"></script>
