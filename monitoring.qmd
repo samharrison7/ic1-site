@@ -76,12 +76,13 @@ The same approach can detect other emerging contaminants. Honey samples have rev
 
 ## Other long-term monitoring
 
-UKCEH runs or contributes to several other long-term monitoring programmes that track chemicals and their effects across air, water, soil and wildlife.
+UKCEH runs, coordinates or contributes to several other long-term monitoring programmes, in the UK and internationally, that track chemicals and their effects across air, water, soil and wildlife.
 
 | Programme | Running since | Relevance to chemicals |
 |-----------|---------------|------------------------|
 | [Environmental Change Network](https://ecn.ac.uk/) | 1992 | The UK's long-term ecosystem research network, measuring physical, chemical and biological change at terrestrial and freshwater sites |
 | [UK Eutrophying and Acidifying Atmospheric Pollutants network](https://uk-air.defra.gov.uk/networks/network-info?view=ukeap) | 1986 | Run by UKCEH and Ricardo for the Environment Agency, Defra and the devolved administrations. Tracks long-term trends in air pollutants such as ammonia at rural and remote sites |
+| [ICP Vegetation](https://icpvegetation.ceh.ac.uk/) | 1987 | International programme coordinated by UKCEH under the UNECE Air Convention, with around 50 countries taking part. Identifies where air pollution harms vegetation and crops, from local to global scales, including ozone damage, and uses naturally growing mosses to monitor deposition of heavy metals, nitrogen and persistent organic pollutants |
 | [Countryside Survey](https://www.ceh.ac.uk/our-science/projects/countryside-survey) | 1978 | Repeat national surveys of soil chemistry, including pH, carbon and metals. Soil acidity has fallen alongside sulfur deposition |
 | [UK Upland Waters Monitoring Network](https://uwmn.uk/) | 1988 | Lakes and streams tracking recovery from acid rain, and the effects of nitrogen deposition and climate change |
 | [Thames Initiative](https://essd.copernicus.org/articles/10/1637/2018/) | 2009 | Weekly water quality monitoring of the River Thames and 15 tributaries, including nutrients and metals |
