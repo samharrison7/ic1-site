@@ -87,7 +87,7 @@ Sam is an environmental modeller who specialises in developing software and tool
 ![](assets/images/team-richard-cross.jpg){.person-photo fig-alt="Richard Cross"}
 
 ::: {.person-body}
-[Richard Cross]{.person-name} [Pollution Scientist]{.person-role}
+[Richard Cross]{.person-name} [Environmental Scientist]{.person-role}
 
 Richard is Principal Investigator for the UKCEH Microplastics Analysis Facility, leading the development of new methods to detect and characterise micro- and nanoplastics in environmental samples. Richard's research explores the exposure and effects of particulate pollutants, with a focus on robust, reproducible methods that give policy decisions a sound evidence base. Richard also contributes to international standards for measuring microplastics in water through BSI and ISO committees.
 

@@ -2,13 +2,16 @@ project:
   type: website
   output-dir: _output
   resources:
+    - CNAME # custom domain for GitHub Pages
     - assets/js/consent.js
     - assets/js/theme.js
+    - quiz/** # the booth quiz, copied in from the ic1-quiz repo by `pixi run sync-quiz`
 
 brand: _brand.yml
 
 website:
   title: "UKCEH at IC1"
+  site-url: https://ic1.ceh.ac.uk
   description: "UKCEH's contribution to the first International Conference of the Global Framework on Chemicals"
   favicon: assets/logos/ukceh-avatar.png
   navbar:

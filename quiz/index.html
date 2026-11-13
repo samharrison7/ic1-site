@@ -1,0 +1,1246 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>IC1 chemicals quiz · UKCEH</title>
+<meta name="description" content="Six quick questions from the UK Centre for Ecology &amp; Hydrology at IC1.">
+<link rel="icon" href="assets/ukceh-avatar.png">
+<link rel="apple-touch-icon" href="assets/ukceh-avatar.png">
+<style>
+/* UKCEH brand styling (UKCEH Brand Guidelines 2.0), matching the IC1 site:
+   black anchor colour, data-green accent, square corners, 1px rules. */
+:root {
+  --ukceh-black: #000000;
+  --ukceh-white: #ffffff;
+  --ukceh-data: #dbfe52;
+  --ukceh-land: #90a968;
+  --ukceh-font: "Suisse Int'l", "Suisse International", Arial, Helvetica, sans-serif;
+
+  /* Dark is the default, as on the IC1 site. Add ?theme=light for light. */
+  color-scheme: dark;
+  --bg: var(--ukceh-black);
+  --fg: var(--ukceh-white);
+  --muted: #b3b3b3;
+  --rule: rgba(255, 255, 255, 0.4);
+  --panel: rgba(255, 255, 255, 0.08);
+  --accent: var(--ukceh-data);
+  --bar: rgba(219, 254, 82, 0.34);
+  --bar-correct: rgba(144, 169, 104, 0.7);
+  box-sizing: border-box;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: var(--ukceh-white);
+  --fg: var(--ukceh-black);
+  --muted: #4d4d4d;
+  --rule: var(--ukceh-black);
+  --panel: #ebf5f4; /* air 50% tint */
+  --accent: var(--ukceh-black);
+  --bar: var(--ukceh-data);
+  --bar-correct: #adbe8e; /* land 75% tint */
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { height: 100%; }
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--ukceh-font);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2 { font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 0.75rem; text-wrap: balance; }
+
+/* Focus brackets: [ LABEL ] */
+.label {
+  display: inline-block;
+  margin: 0 0 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.label::before { content: "[\2002"; }
+.label::after { content: "\2002]"; }
+
+/* ---------- Top bar: always black, white logo ---------- */
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem max(1.25rem, env(safe-area-inset-right)) 0.75rem max(1.25rem, env(safe-area-inset-left));
+  padding-top: calc(0.75rem + env(safe-area-inset-top, 0px));
+  background: var(--ukceh-black);
+  color: var(--ukceh-white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.bar .logo { display: block; height: 30px; width: auto; flex: none; }
+.bar .site {
+  padding-left: 1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--ukceh-white);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.bar a.site:hover { color: var(--ukceh-data); }
+.bar nav { display: flex; gap: 1.25rem; margin-left: auto; }
+.bar nav a {
+  padding: 0.35rem 0;
+  color: var(--ukceh-white);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.bar nav a:hover { color: var(--ukceh-data); }
+.bar nav a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--ukceh-data); }
+/* Small screens: tighten up so the logo, site link and views share one row */
+@media (max-width: 479.98px) {
+  .bar { gap: 0.6rem; padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }
+  .bar .logo { height: 30px; }
+  .bar .site { padding-left: 0.6rem; font-size: 0.85rem; }
+  .bar nav { gap: 0.8rem; }
+  .bar nav a { font-size: 0.85rem; }
+}
+/* Too narrow for all three: the views drop to a second row */
+@media (max-width: 359.98px) { .bar { flex-wrap: wrap; row-gap: 0.25rem; } }
+
+/* The jet: quiz progress rises up the right edge, like the Jet d'Eau */
+.jet {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 6px;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+}
+.jet-fill {
+  width: 100%;
+  height: calc(var(--p, 0) * 100%);
+  background: var(--ukceh-data);
+  transition: height 0.6s cubic-bezier(.2, .8, .2, 1);
+}
+@media (prefers-reduced-motion: reduce) { .jet-fill { transition: none; } }
+
+/* ---------- Quiz ---------- */
+#quiz {
+  max-width: 41rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem calc(3rem + env(safe-area-inset-bottom, 0px)) 1.25rem;
+}
+#quiz h1 { font-size: clamp(2.25rem, 8vw, 3.5rem); letter-spacing: -0.025em; line-height: 1.05; margin-bottom: 1.25rem; }
+#quiz h2 { font-size: clamp(1.5rem, 5.5vw, 2rem); }
+.lede { font-size: 1.2rem; line-height: 1.45; max-width: 34rem; margin: 0 0 1.75rem; }
+.hint { color: var(--muted); margin: 0 0 1rem; }
+.small { color: var(--muted); font-size: 0.9rem; margin: 1.75rem 0 0; max-width: 34rem; }
+.options { display: grid; gap: 0.5rem; margin: 0 0 1.25rem; padding: 0; list-style: none; }
+.opt {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.7rem 0.95rem;
+  text-align: left;
+  font: inherit;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (hover: hover) { .opt:hover:not(:disabled):not([aria-pressed="true"]) { border-color: var(--accent); background: var(--panel); } }
+.opt .mark {
+  flex: none;
+  width: 1.05rem;
+  height: 1.05rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+.opt.multi .mark { border-radius: 0; }
+.opt[aria-pressed="true"] { background: var(--ukceh-data); border-color: var(--ukceh-data); color: var(--ukceh-black); font-weight: 500; }
+.opt[aria-pressed="true"] .mark { background: var(--ukceh-black); border-color: var(--ukceh-black); }
+.opt:disabled { cursor: default; }
+.opt.right:not([aria-pressed="true"]) { border-color: var(--ukceh-land); }
+.opt.right:not([aria-pressed="true"]) .mark { border-color: var(--ukceh-land); background: var(--ukceh-land); }
+.opt:disabled:not(.right):not([aria-pressed="true"]) { color: var(--muted); }
+.other-field {
+  display: block;
+  width: 100%;
+  margin: -0.25rem 0 1.25rem;
+  padding: 0.7rem 0.9rem;
+  font: inherit;
+  font-size: max(1rem, 16px); /* stops iOS zooming on focus */
+  color: var(--fg);
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+}
+.reveal {
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.1rem;
+  background: var(--panel);
+  border-left: 2px solid var(--fg);
+}
+.reveal strong { display: block; font-size: 1.2rem; font-weight: 500; margin-bottom: 0.25rem; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.25rem; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3rem;
+  padding: 0.7rem 1.2rem;
+  font: inherit;
+  font-weight: 500;
+  color: var(--ukceh-black);
+  background: var(--ukceh-data);
+  border: 1px solid var(--ukceh-data);
+  border-radius: 0;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+:root[data-theme="light"] .btn { border-color: var(--ukceh-black); }
+.btn.arrow::after { content: "\2192"; }
+.btn:disabled { opacity: 0.4; cursor: default; }
+.btn.quiet { background: transparent; color: var(--fg); border-color: var(--fg); }
+@media (hover: hover) { .btn.quiet:hover { background: var(--ukceh-data); border-color: var(--ukceh-data); color: var(--ukceh-black); } }
+.link-btn {
+  font: inherit;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  padding: 0.5rem 0.25rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+/* ---------- Spot prize: the whole page turns data green ---------- */
+body.win-mode {
+  --bg: var(--ukceh-data);
+  --fg: var(--ukceh-black);
+  --muted: #2b2b2b;
+  --rule: var(--ukceh-black);
+  --panel: rgba(0, 0, 0, 0.08);
+  --accent: var(--ukceh-black);
+  color-scheme: light;
+}
+body.win-mode .jet { display: none; }
+body.win-mode .btn { background: var(--ukceh-black); border-color: var(--ukceh-black); color: var(--ukceh-white); }
+body.win-mode .btn.quiet { background: transparent; color: var(--ukceh-black); }
+#quiz .win-title { font-size: clamp(3.25rem, 15vw, 6rem); letter-spacing: -0.035em; line-height: 0.95; }
+.win-code {
+  display: inline-block;
+  margin: 0 0 1.5rem;
+  padding: 0.9rem 1.4rem 0.8rem;
+  background: var(--ukceh-black);
+  color: var(--ukceh-data);
+}
+.win-code small { display: block; margin-bottom: 0.3rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ukceh-white); }
+.win-code b { display: block; font-size: clamp(2.75rem, 13vw, 4.5rem); font-weight: 500; letter-spacing: 0.14em; line-height: 1; margin-right: -0.14em; }
+@media (prefers-reduced-motion: no-preference) {
+  body.win-mode #quiz { animation: win-in 0.5s cubic-bezier(.2, .8, .2, 1); }
+  @keyframes win-in { from { opacity: 0; transform: translateY(1.5rem); } }
+}
+
+/* ---------- Booth team page ---------- */
+#staff { max-width: 41rem; margin: 0 auto; padding: 2.5rem 1.25rem calc(3rem + env(safe-area-inset-bottom, 0px)); }
+#staff h1 { font-size: clamp(2rem, 7vw, 3rem); letter-spacing: -0.025em; margin-bottom: 1.5rem; }
+#staff .chart { margin-bottom: 2.5rem; }
+#staff .chart h2 { margin-bottom: 1rem; }
+#staff form { display: grid; gap: 0.9rem; justify-items: start; }
+#staff label { display: grid; gap: 0.35rem; width: 100%; }
+#staff label.check { display: flex; align-items: center; gap: 0.6rem; }
+#staff label.check input { width: 1.3rem; height: 1.3rem; accent-color: var(--ukceh-data); }
+.field {
+  width: 100%;
+  max-width: 22rem;
+  padding: 0.7rem 0.9rem;
+  font: inherit;
+  font-size: max(1rem, 16px);
+  color: var(--fg);
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+}
+.field.num { max-width: 8rem; }
+.field.code { max-width: 12rem; font-size: 1.75rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.verdict { margin: 1rem 0 0; padding: 1rem 1.1rem; font-size: 1.2rem; font-weight: 500; border-left: 2px solid var(--fg); background: var(--panel); }
+.verdict.good { background: var(--ukceh-data); color: var(--ukceh-black); border-color: var(--ukceh-data); }
+.verdict.bad { border-color: #ff6b5e; }
+.prize-list { display: grid; gap: 0.35rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+.prize-list li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1rem; padding: 0.5rem 0.7rem; background: var(--panel); font-variant-numeric: tabular-nums; }
+.prize-list b { font-weight: 500; letter-spacing: 0.1em; }
+.prize-list .open { color: var(--accent); }
+
+/* ---------- Results (scrolling view, for phones) ---------- */
+#results { max-width: 72rem; margin: 0 auto; padding: 2.5rem 1.25rem calc(3rem + env(safe-area-inset-bottom, 0px)); }
+.results-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: 2rem; }
+.results-head h1 { margin: 0; font-size: clamp(2rem, 7vw, 3rem); letter-spacing: -0.025em; }
+.results-head .label { display: block; }
+.count { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.2; }
+.count b { display: block; color: var(--fg); font-size: 2.25rem; font-weight: 500; letter-spacing: -0.025em; font-variant-numeric: tabular-nums; }
+.note { margin: 0 0 1.5rem; padding: 0.75rem 1rem; background: var(--panel); border-left: 2px solid var(--fg); }
+.charts { display: grid; gap: 2.5rem 3rem; }
+@media (min-width: 56rem) { .charts { grid-template-columns: 1fr 1fr; } }
+.chart { padding-top: 1rem; border-top: 1px solid var(--rule); }
+.chart h2 { font-size: 1.35rem; margin-bottom: 0.25rem; }
+.chart .hint { margin-bottom: 0.9rem; font-size: 0.9rem; }
+.rows { display: grid; gap: 0.35rem; margin: 0; padding: 0; list-style: none; }
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 2.4rem;
+  padding: 0.35rem 0.7rem;
+  background: var(--panel);
+  overflow: hidden;
+}
+.row .fill { position: absolute; inset: 0 auto 0 0; background: var(--bar); transition: width 0.5s ease; }
+.row.correct .fill { background: var(--bar-correct); }
+.row span { position: relative; }
+.row .lbl { line-height: 1.25; }
+.row.correct .lbl { font-weight: 600; }
+.row .n { flex: none; white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 500; }
+.row .n small { color: var(--muted); font-size: 0.8em; font-weight: 400; margin-left: 0.4em; }
+:root[data-theme="light"] .row .n small { color: var(--fg); }
+.tools { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+@media (prefers-reduced-motion: reduce) { .row .fill, .d-row .fill { transition: none; } }
+
+/* ---------- Display (everything on one screen, for the booth iPad) ---------- */
+body.display-mode { height: 100vh; height: 100dvh; overflow: hidden; }
+body.display-mode .bar, body.display-mode .jet { display: none; }
+#display {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6vh;
+  height: 100vh;
+  height: 100dvh;
+  padding: calc(1.8vh + env(safe-area-inset-top, 0px)) max(1.8vw, env(safe-area-inset-right)) calc(1.8vh + env(safe-area-inset-bottom, 0px)) max(1.8vw, env(safe-area-inset-left));
+}
+.d-head { flex: none; display: flex; align-items: center; gap: 2vw; padding-bottom: 1.6vh; border-bottom: 1px solid var(--rule); }
+.d-head .logo { height: clamp(30px, 5.2vh, 56px); width: auto; flex: none; }
+:root[data-theme="light"] .d-head .logo { filter: invert(1); }
+.d-title { flex: 1; min-width: 0; padding-left: 2vw; border-left: 1px solid var(--rule); }
+.d-title .label { margin: 0 0 0.4vh; font-size: clamp(0.65rem, 1.5vh, 0.9rem); }
+.d-title h1 { margin: 0; font-size: clamp(1.3rem, 4.2vh, 2.75rem); letter-spacing: -0.025em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.d-count { flex: none; margin: 0; text-align: right; color: var(--muted); font-size: clamp(0.7rem, 1.7vh, 1rem); line-height: 1.1; }
+.d-count b { display: block; color: var(--fg); font-size: clamp(1.6rem, 5.4vh, 3.5rem); font-weight: 500; letter-spacing: -0.025em; font-variant-numeric: tabular-nums; }
+.d-qr { flex: none; display: flex; align-items: center; gap: 0.9vw; font-size: clamp(0.7rem, 1.7vh, 1rem); font-weight: 500; line-height: 1.2; }
+.d-qr img { display: block; height: clamp(56px, 10.5vh, 120px); width: auto; background: #fff; }
+.d-qr span::after { content: "\2192"; display: block; color: var(--accent); }
+.d-grid { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2.2vw; }
+.d-col { display: flex; flex-direction: column; gap: 2vh; min-height: 0; }
+.d-chart { flex: var(--n, 6) 1 0; min-height: 0; display: flex; flex-direction: column; }
+.d-chart h2 {
+  flex: none;
+  margin: 0 0 0.9vh;
+  font-size: clamp(0.95rem, 2.6vh, 1.6rem);
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.d-chart h2 small { color: var(--muted); font-size: 0.62em; font-weight: 400; letter-spacing: 0; margin-left: 0.6em; }
+.d-rows { flex: 1; min-height: 0; display: grid; grid-auto-rows: minmax(0, 1fr); gap: 0.55vh; margin: 0; padding: 0; list-style: none; }
+.d-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6em;
+  min-height: 0;
+  padding: 0 0.7em;
+  background: var(--panel);
+  overflow: hidden;
+  font-size: clamp(0.78rem, 2.15vh, 1.3rem);
+  line-height: 1;
+}
+.d-row .fill { position: absolute; inset: 0 auto 0 0; background: var(--bar); transition: width 0.6s ease; }
+.d-row span { position: relative; }
+.d-row .lbl { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; }
+.d-row .n { flex: none; font-variant-numeric: tabular-nums; font-weight: 500; }
+.d-stat { flex: 4 1 0; min-height: 0; display: flex; flex-direction: column; justify-content: center; padding-top: 1.2vh; border-top: 1px solid var(--rule); }
+.d-stat b { font-size: clamp(1.8rem, 7.5vh, 4.5rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.d-stat span { margin-top: 0.8vh; color: var(--muted); font-size: clamp(0.78rem, 2.05vh, 1.25rem); line-height: 1.3; }
+.d-status { position: fixed; left: 50%; bottom: 0.8vh; transform: translateX(-50%); padding: 0.2em 0.8em; background: var(--bg); color: var(--muted); font-size: 0.8rem; }
+
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100% - 2rem);
+  padding: 0.7rem 1.1rem;
+  background: var(--fg);
+  color: var(--bg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+#toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+<div class="jet" id="jet" aria-hidden="true"><div class="jet-fill"></div></div>
+
+<header class="bar">
+  <img class="logo" id="bar-logo" src="assets/ukceh-logo-white.png" width="800" height="211" alt="UK Centre for Ecology &amp; Hydrology">
+  <a class="site" id="site-link" href="https://ic1.ceh.ac.uk" target="_blank" rel="noopener">UKCEH at IC1</a>
+  <nav aria-label="Views">
+    <a href="#quiz" id="nav-quiz">Quiz</a>
+    <a href="#results" id="nav-results">Results</a>
+  </nav>
+</header>
+
+<main id="quiz"></main>
+
+<main id="results" hidden>
+  <div class="results-head">
+    <div>
+      <p class="label">IC1 chemicals quiz</p>
+      <h1>What delegates are telling us</h1>
+    </div>
+    <p class="count"><b id="count">0</b><span id="count-label">responses</span></p>
+  </div>
+  <p class="note" id="results-note" hidden></p>
+  <div class="charts" id="charts"></div>
+  <div class="tools">
+    <a class="btn arrow" href="#quiz" id="results-cta">Take the quiz</a>
+  </div>
+</main>
+
+<main id="display" hidden>
+  <header class="d-head">
+    <img class="logo" src="assets/ukceh-logo-white.png" width="800" height="211" alt="UK Centre for Ecology &amp; Hydrology">
+    <div class="d-title">
+      <p class="label">IC1 chemicals quiz</p>
+      <h1>What delegates are telling us</h1>
+    </div>
+    <p class="d-count"><b id="d-count">0</b><span id="d-count-label">responses</span></p>
+    <div class="d-qr"><span>Scan to<br>take the quiz</span><img id="d-qr-img" src="assets/qr.svg" width="120" height="120" alt="QR code that opens the quiz"></div>
+  </header>
+  <div class="d-grid" id="d-grid"></div>
+  <p class="d-status" id="d-status" hidden></p>
+</main>
+
+<main id="staff" hidden>
+  <p class="label">Booth team</p>
+  <h1>Spot prizes</h1>
+  <p class="note" id="staff-note" hidden></p>
+  <form id="staff-login">
+    <label for="staff-pass">Team passphrase
+      <input class="field" id="staff-pass" type="password" autocomplete="current-password" required>
+    </label>
+    <button class="btn arrow" type="submit">Open</button>
+  </form>
+  <div id="staff-body" hidden>
+    <section class="chart">
+      <h2>Check a winner’s code</h2>
+      <form id="claim-form">
+        <input class="field code" id="claim-code" type="text" maxlength="8" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Prize code" required>
+        <button class="btn" type="submit">Check and mark as claimed</button>
+      </form>
+      <p class="verdict" id="claim-result" role="status" hidden></p>
+    </section>
+    <section class="chart">
+      <h2>So far</h2>
+      <p id="staff-summary"></p>
+      <ul class="prize-list" id="prize-list"></ul>
+    </section>
+    <section class="chart">
+      <h2>Settings</h2>
+      <form id="settings-form">
+        <label class="check"><input type="checkbox" id="set-on"> Give out prizes</label>
+        <label for="set-one-in">Chance of winning: 1 in
+          <input class="field num" id="set-one-in" type="number" inputmode="numeric" min="1" max="100000" required>
+        </label>
+        <label for="set-total">Prizes to give away in total
+          <input class="field num" id="set-total" type="number" inputmode="numeric" min="0" max="10000" required>
+        </label>
+        <label for="set-gap">Shortest time between two winners, in minutes
+          <input class="field num" id="set-gap" type="number" inputmode="numeric" min="0" max="10000" required>
+        </label>
+        <p class="hint" id="set-hint"></p>
+        <button class="btn" type="submit">Save settings</button>
+      </form>
+    </section>
+    <button class="link-btn" type="button" id="staff-lock">Lock this page</button>
+  </div>
+</main>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- configuration ---------- */
+  // Supabase project URL and publishable key. The key is meant to be public:
+  // supabase/schema.sql limits it to adding an answer and reading counts.
+  // Leave the key empty to run without a database (answers stay on the device).
+  var SUPABASE_URL = "https://mnvnmnjmwtyjwwqhpnhi.supabase.co";
+  var SUPABASE_KEY = "sb_publishable_S3v_KYy89ZDl8RE-38nvyg_R-SKP2Po";
+
+  var POLL_MS = 10000;          // how often the results refresh
+  var KIOSK_IDLE_MS = 60000;    // kiosk: return to the start after this long untouched
+  var KIOSK_DONE_MS = 20000;    // kiosk: how long the thank-you screen stays up
+  var KIOSK_PRIZE_MS = 180000;  // kiosk: how long a "You've won" screen stays up
+
+  // multi: several options may be chosen; max: at most this many.
+  // Each option is [id, label, short label for the one-screen display].
+  // Ids must match quiz_spec() in supabase/schema.sql.
+  var QUESTIONS = [
+    { id: "org", text: "Which best describes your organisation?", short: "Organisation", multi: false, options: [
+      ["gov", "Governmental organisation", "Government"],
+      ["igo", "Intergovernmental organisation or UN agency", "Intergovernmental or UN"],
+      ["industry", "Industry or business"],
+      ["finance", "Finance or investment"],
+      ["academia", "Academia or research"],
+      ["ngo", "Civil society or NGO"],
+      ["health", "Health sector"],
+      ["labour", "Labour or trade union"],
+      ["indigenous", "Indigenous peoples’ organisation", "Indigenous peoples’ org."],
+      ["youth", "Youth organisation"],
+      ["other", "Other"]
+    ]},
+    { id: "chem", text: "Which chemicals or contaminants are your highest priority?", short: "Highest-priority chemicals", multi: true, max: 3, options: [
+      ["pfas", "PFAS (“forever chemicals”)", "PFAS"],
+      ["plastics", "Plastics, microplastics and plastic chemicals", "Plastics and microplastics"],
+      ["pesticides", "Pesticides"],
+      ["metals", "Metals"],
+      ["pharma", "Pharmaceuticals"],
+      ["legacy", "Other legacy pollutants (e.g. POPs, PCBs)", "Legacy pollutants (POPs, PCBs)"],
+      ["other", "Other"]
+    ]},
+    { id: "goal", text: "What do you most want to get out of IC1?", short: "Goals for IC1", multi: true, options: [
+      ["negotiate", "Shape negotiation outcomes", "Shape negotiations"],
+      ["partners", "Find partners and collaborators", "Find partners"],
+      ["science", "Learn about the latest science", "Learn the latest science"],
+      ["tools", "Discover data, tools or methods", "Data, tools or methods"],
+      ["funding", "Identify funding opportunities", "Funding opportunities"],
+      ["capacity", "Build capacity in my organisation or country", "Build capacity"],
+      ["showcase", "Showcase my own work", "Showcase my work"],
+      ["other", "Other"]
+    ]},
+    { id: "area", text: "Which areas of work matter most to you?", short: "Priority areas of work", multi: true, options: [
+      ["a", "Laws, regulation and institutional capacity (A)", "A · Laws and regulation"],
+      ["b", "Monitoring, data and information access (B)", "B · Monitoring and data"],
+      ["c", "Identifying and prioritising issues of concern (C)", "C · Issues of concern"],
+      ["d", "Safer alternatives and sustainable chemistry (D)", "D · Safer alternatives"],
+      ["e", "Finance, partnerships and capacity-building (E)", "E · Finance and capacity"]
+    ]},
+    { id: "support", text: "What kind of scientific support would help you most?", short: "Scientific support needed", multi: true, options: [
+      ["monitoring", "Long-term monitoring data"],
+      ["modelling", "Predictive modelling of emissions, exposure and impacts", "Predictive modelling"],
+      ["indicators", "Indicators to track progress against GFC targets", "Indicators for GFC targets"],
+      ["appraisal", "Appraisal of policy options (costs, benefits, effectiveness)", "Policy appraisal"],
+      ["training", "Training and capacity-building"],
+      ["opendata", "Open data platforms and tools"],
+      ["other", "Other"]
+    ]},
+    { id: "jet", text: "Geneva’s famous Jet d’Eau began life as…?", short: "Jet d’Eau", multi: false, correct: "valve", options: [
+      ["fireworks", "A fireworks display for a royal visit"],
+      ["valve", "A safety valve for the city’s hydraulic power network"],
+      ["fire", "A fire-fighting demonstration"],
+      ["gift", "A gift from a watchmaking guild"]
+    ]}
+  ];
+  var JET_FACT = "It was built in 1886 to release excess pressure from the hydraulic network that powered Geneva’s workshops. The city liked the look of it and kept it. Today it reaches about 140 metres.";
+  // The one-screen display: three columns. "jet-stat" shows only the share who
+  // got the fun question right, so the booth screen doesn't give the answer away.
+  var DISPLAY_COLUMNS = [["org", "jet-stat"], ["chem", "goal"], ["area", "support"]];
+
+  var NUMBER_WORDS = { 2: "two", 3: "three", 4: "four", 5: "five" };
+
+  var PENDING_KEY = "ic1quiz.pending";
+  var DONE_KEY = "ic1quiz.done";
+  var PRIZE_KEY = "ic1quiz.prize";
+  var STAFF_KEY = "ic1quiz.staff";
+  var CODE_RE = /^[A-Z0-9]{4,8}$/;
+
+  var params = new URLSearchParams(location.search);
+  var KIOSK = params.has("kiosk");
+  var DEMO = params.has("demo");   // made-up results, nothing sent or fetched: for checking the layout
+  var LIVE = !!(SUPABASE_URL && SUPABASE_KEY) && !DEMO;
+  if (KIOSK) {
+    // A shared device should stay on the quiz, so the site link becomes plain text.
+    var siteLink = document.getElementById("site-link");
+    var siteText = document.createElement("span");
+    siteText.className = "site";
+    siteText.textContent = siteLink.textContent;
+    siteLink.parentNode.replaceChild(siteText, siteLink);
+  }
+  if (params.get("theme") === "light") document.documentElement.setAttribute("data-theme", "light");
+
+  /* ---------- small helpers ---------- */
+  function el(tag, props, kids) {
+    var node = document.createElement(tag);
+    if (props) Object.keys(props).forEach(function (k) {
+      if (k === "class") node.className = props[k];
+      else if (k === "text") node.textContent = props[k];
+      else if (k.indexOf("on") === 0) node.addEventListener(k.slice(2), props[k]);
+      else if (props[k] !== false && props[k] != null) node.setAttribute(k, props[k]);
+    });
+    (kids || []).forEach(function (kid) { if (kid) node.appendChild(kid); });
+    return node;
+  }
+  function $(id) { return document.getElementById(id); }
+  function question(id) { return QUESTIONS.filter(function (q) { return q.id === id; })[0]; }
+  var toastTimer;
+  function toast(msg) {
+    var t = $("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.classList.remove("show"); }, 4200);
+  }
+  function store(key, value) {
+    try {
+      if (value === undefined) return localStorage.getItem(key);
+      if (value === null) localStorage.removeItem(key); else localStorage.setItem(key, value);
+    } catch (e) { /* private window or blocked storage: carry on in memory */ }
+    return null;
+  }
+  function loadPending() {
+    try {
+      var arr = JSON.parse(store(PENDING_KEY) || "[]");
+      return Array.isArray(arr) ? arr.filter(function (p) { return p && typeof p.id === "string" && p.body; }) : [];
+    } catch (e) { return []; }
+  }
+  function savePending() { store(PENDING_KEY, JSON.stringify(pending)); }
+
+  /* ---------- tallies ---------- */
+  function emptyTally() {
+    var t = { total: 0, byQ: {} };
+    QUESTIONS.forEach(function (q) {
+      var counts = {};
+      q.options.forEach(function (o) { counts[o[0]] = 0; });
+      t.byQ[q.id] = { counts: counts, answered: 0 };
+    });
+    return t;
+  }
+  // Add one answer sheet (from this device) to a tally.
+  function addBody(t, body) {
+    var a = body && typeof body.answers === "object" && body.answers ? body.answers : {};
+    t.total += 1;
+    QUESTIONS.forEach(function (q) {
+      var picks = Array.isArray(a[q.id]) ? a[q.id] : [];
+      var valid = picks.filter(function (p, i) {
+        return typeof p === "string" && Object.prototype.hasOwnProperty.call(t.byQ[q.id].counts, p) && picks.indexOf(p) === i;
+      });
+      valid = valid.slice(0, q.multi ? (q.max || valid.length) : 1);
+      if (!valid.length) return;
+      t.byQ[q.id].answered += 1;
+      valid.forEach(function (p) { t.byQ[q.id].counts[p] += 1; });
+    });
+  }
+  // Turn the get_results() reply into a tally, ignoring anything unexpected.
+  function fromServer(json) {
+    var t = emptyTally();
+    var num = function (v) { return typeof v === "number" && isFinite(v) && v > 0 ? Math.floor(v) : 0; };
+    if (!json || typeof json !== "object") return t;
+    t.total = num(json.total);
+    QUESTIONS.forEach(function (q) {
+      var c = json.counts && typeof json.counts[q.id] === "object" && json.counts[q.id] ? json.counts[q.id] : {};
+      q.options.forEach(function (o) { t.byQ[q.id].counts[o[0]] = num(c[o[0]]); });
+      t.byQ[q.id].answered = num(json.answered && json.answered[q.id]);
+    });
+    return t;
+  }
+  function currentTally() {
+    var t = server ? JSON.parse(JSON.stringify(server)) : emptyTally();
+    pending.forEach(function (p) { addBody(t, p.body); });
+    return t;
+  }
+
+  /* ---------- database ---------- */
+  var pending = loadPending();  // [{id, body}] answers not yet confirmed by the database
+  var server = null;            // last tally from the database
+  var lastOk = 0;               // when the database last answered
+  var flushing = false;
+
+  function rpc(name, args) {
+    return fetch(SUPABASE_URL + "/rest/v1/rpc/" + name, {
+      method: "POST",
+      headers: { apikey: SUPABASE_KEY, "Content-Type": "application/json" },
+      body: JSON.stringify(args || {})
+    });
+  }
+
+  // Send waiting answers one at a time. Resolves when it stops, sent or not.
+  function flush() {
+    if (!LIVE || flushing || !pending.length) return Promise.resolve();
+    flushing = true;
+    var item = pending[0];
+    // Only the answer sheet the person has just sent can win a prize: they are
+    // still looking at the screen. Older ones waiting from an offline spell can't.
+    var canWin = item.id === currentId;
+    return rpc("submit_response", { p_client_id: item.id, p_answers: item.body.answers, p_other: item.body.other || {}, p_prize: canWin })
+      .then(function (res) {
+        // 400: the database refused it as invalid, so retrying can never work.
+        if (!res.ok && res.status !== 400) { flushing = false; return; }
+        var reply = res.ok ? res.json().catch(function () { return null; }) : Promise.resolve(null);
+        return reply.then(function (data) {
+          flushing = false;
+          pending = pending.filter(function (p) { return p.id !== item.id; });
+          savePending();
+          if (res.ok && server) addBody(server, item.body);
+          if (data && typeof data.prize === "string" && CODE_RE.test(data.prize)) wonPrize(item.id, data.prize);
+          renderAll();
+          return flush();
+        });
+      }, function () { flushing = false; });
+  }
+
+  function refresh() {
+    if (!LIVE) return Promise.resolve();
+    return rpc("get_results").then(function (res) {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    }).then(function (json) {
+      server = fromServer(json);
+      lastOk = Date.now();
+      renderAll();
+    }).catch(function () { renderAll(); });
+  }
+
+  /* ---------- quiz view ---------- */
+  var step = -1;          // -1 intro, 0..n-1 questions, n finished
+  var answers = {};       // question id -> array of option ids
+  var otherText = {};     // question id -> typed text
+  var sentAny = false;
+  var doneAt = 0;
+  var currentId = null;   // id of the answer sheet just sent from this screen
+  var prize = null;       // prize code, if that answer sheet won
+
+  if (!KIOSK && store(DONE_KEY)) {
+    step = QUESTIONS.length; sentAny = true;
+    var kept = store(PRIZE_KEY);
+    if (kept && CODE_RE.test(kept)) prize = kept;
+  }
+
+  function wonPrize(id, code) {
+    if (id !== currentId || step < QUESTIONS.length) return;
+    prize = code;
+    if (!KIOSK) store(PRIZE_KEY, code);
+    lastTouch = Date.now();
+    if (view !== "quiz") location.hash = "#quiz";
+    renderQuiz();
+    window.scrollTo(0, 0);
+  }
+
+  function setWinMode() {
+    document.body.classList.toggle("win-mode", view === "quiz" && !!prize && step >= QUESTIONS.length);
+  }
+
+  function setJet() {
+    var p = step < 0 ? 0 : Math.min(1, step / QUESTIONS.length);
+    $("jet").style.setProperty("--p", String(p));
+  }
+
+  function resetQuiz() {
+    step = -1; answers = {}; otherText = {}; sentAny = false; doneAt = 0; currentId = null; prize = null;
+    renderQuiz();
+  }
+
+  function renderQuiz() {
+    var root = $("quiz");
+    root.textContent = "";
+    setJet();
+    setWinMode();
+
+    if (prize && step >= QUESTIONS.length) {
+      root.appendChild(el("p", { class: "label", text: "Spot prize" }));
+      root.appendChild(el("h1", { class: "win-title", text: "You’ve won!", tabindex: "-1" }));
+      root.appendChild(el("p", { class: "lede", text: "Show this screen to the UKCEH team at our booth to claim your prize." }));
+      root.appendChild(el("p", { class: "win-code" }, [el("small", { text: "Your prize code" }), el("b", { text: prize })]));
+      root.appendChild(el("div", { class: "actions" }, [
+        el("a", { class: "btn arrow", href: "#results", text: "See how everyone answered" }),
+        KIOSK ? el("button", { class: "btn quiet", type: "button", text: "Start again for the next person", onclick: resetQuiz }) : null
+      ]));
+      root.appendChild(el("p", { class: "small", text: KIOSK
+        ? "Make a note of your code if you can’t come to the booth straight away. Each code can be claimed once."
+        : "Take a screenshot in case you close this page. Each code can be claimed once." }));
+      return;
+    }
+
+    if (step < 0) {
+      root.appendChild(el("p", { class: "label", text: "IC1 chemicals quiz" }));
+      root.appendChild(el("h1", { text: "What matters most to you on chemicals?" }));
+      root.appendChild(el("p", { class: "lede", text: "Six quick questions from the UK Centre for Ecology & Hydrology. It takes about a minute, then you can see how other delegates answered." }));
+      root.appendChild(el("div", { class: "actions" }, [
+        el("button", { class: "btn arrow", type: "button", text: "Start the quiz", onclick: function () { step = 0; renderQuiz(); } })
+      ]));
+      root.appendChild(el("p", { class: "small", text: "Your answers are anonymous. We don’t ask for or store your name, email or anything else that identifies you." }));
+      return;
+    }
+
+    if (step >= QUESTIONS.length) {
+      root.appendChild(el("p", { class: "label", text: sentAny ? "Thank you" : "IC1 chemicals quiz" }));
+      root.appendChild(el("h1", { text: sentAny ? "Your answers are in." : "No answers sent this time." }));
+      root.appendChild(el("p", { class: "lede", text: sentAny
+        ? "See how other delegates answered, and come and talk to us at the UKCEH booth about what you chose."
+        : "You skipped every question, so nothing was recorded. You can start again whenever you like." }));
+      root.appendChild(el("div", { class: "actions" }, [
+        el("a", { class: "btn arrow", href: "#results", text: "See how everyone answered" }),
+        (KIOSK || !sentAny) ? el("button", { class: "btn quiet", type: "button", text: KIOSK ? "Start again for the next person" : "Start again", onclick: resetQuiz }) : null
+      ]));
+      return;
+    }
+
+    var q = QUESTIONS[step];
+    var chosen = answers[q.id] || [];
+    var isFun = !!q.correct;
+    var locked = isFun && chosen.length > 0;
+    var last = step === QUESTIONS.length - 1;
+
+    root.appendChild(el("p", { class: "label", text: "Question " + (step + 1) + " of " + QUESTIONS.length }));
+    root.appendChild(el("h2", { text: q.text, tabindex: "-1" }));
+    root.appendChild(el("p", { class: "hint", text: isFun ? "One for fun. Choose one." : (q.max ? "Choose up to " + NUMBER_WORDS[q.max] + "." : (q.multi ? "Choose all that apply." : "Choose one.")) }));
+
+    var list = el("ul", { class: "options" });
+    q.options.forEach(function (o) {
+      var on = chosen.indexOf(o[0]) !== -1;
+      var cls = "opt" + (q.multi ? " multi" : "") + (locked && o[0] === q.correct ? " right" : "");
+      list.appendChild(el("li", null, [el("button", {
+        class: cls,
+        type: "button",
+        "aria-pressed": on ? "true" : "false",
+        disabled: locked ? "" : false,
+        onclick: function () { choose(q, o[0]); }
+      }, [el("span", { class: "mark" }), el("span", { text: o[1] })])]));
+    });
+    root.appendChild(list);
+
+    if (chosen.indexOf("other") !== -1) {
+      var input = el("input", {
+        class: "other-field", type: "text", maxlength: "80", autocomplete: "off",
+        placeholder: "Tell us more (optional)", "aria-label": "Tell us more (optional)"
+      });
+      input.value = otherText[q.id] || "";
+      input.addEventListener("input", function () { otherText[q.id] = input.value; });
+      root.appendChild(input);
+    }
+
+    if (locked) {
+      root.appendChild(el("div", { class: "reveal" }, [
+        el("strong", { text: chosen[0] === q.correct ? "Correct." : "Not quite. It was a safety valve." }),
+        el("span", { text: JET_FACT })
+      ]));
+    }
+
+    root.appendChild(el("div", { class: "actions" }, [
+      el("button", {
+        class: "btn arrow", type: "button",
+        text: last ? "Send my answers" : "Next",
+        disabled: chosen.length ? false : "",
+        onclick: advance
+      }),
+      locked ? null : el("button", {
+        class: "link-btn", type: "button",
+        text: last ? "Skip and send" : "Skip",
+        onclick: function () { delete answers[q.id]; delete otherText[q.id]; advance(); }
+      })
+    ]));
+  }
+
+  function choose(q, optId) {
+    var cur = (answers[q.id] || []).slice();
+    var at = cur.indexOf(optId);
+    if (q.multi) {
+      if (at !== -1) cur.splice(at, 1);
+      else if (q.max && cur.length >= q.max) { toast("You can choose up to " + NUMBER_WORDS[q.max] + ". Untick one to change it."); return; }
+      else cur.push(optId);
+    } else {
+      cur = at === -1 ? [optId] : (q.correct ? cur : []);
+    }
+    if (cur.length) answers[q.id] = cur; else delete answers[q.id];
+    if (cur.indexOf("other") === -1) delete otherText[q.id];
+    renderQuiz();
+  }
+
+  function advance() {
+    step += 1;
+    if (step >= QUESTIONS.length) submit();
+    renderQuiz();
+    var h = document.querySelector("#quiz h2, #quiz h1");
+    if (h) { h.setAttribute("tabindex", "-1"); h.focus({ preventScroll: true }); }
+    window.scrollTo(0, 0);
+  }
+
+  function submit() {
+    var body = { answers: {}, other: {} };
+    var any = false;
+    QUESTIONS.forEach(function (q) {
+      var a = answers[q.id];
+      if (!a || !a.length) return;
+      body.answers[q.id] = a.slice();
+      any = true;
+      var t = (otherText[q.id] || "").trim().slice(0, 80);
+      if (t && a.indexOf("other") !== -1) body.other[q.id] = t;
+    });
+    sentAny = any;
+    doneAt = Date.now();
+    if (!any) return;
+    if (!KIOSK) store(DONE_KEY, "1");
+    var id = "r" + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+    currentId = id;
+    pending.push({ id: id, body: body });
+    savePending();
+    renderAll();
+    if (!LIVE) { toast("Saved on this device only"); return; }
+    flush().then(function () {
+      var waiting = pending.some(function (p) { return p.id === id; });
+      if (waiting) toast("Saved on this device. It will send when the connection returns.");
+      else if (!prize) toast("Answers sent");
+    });
+  }
+
+  /* ---------- results view (scrolls; for phones) ---------- */
+  function statusMessage() {
+    if (DEMO) return "Demo: made-up results.";
+    if (!LIVE) return "Shared results aren’t set up, so this shows only answers given on this device.";
+    if (lastOk && Date.now() - lastOk > POLL_MS * 4.5) return "The shared results can’t be reached right now, so this may be out of date.";
+    if (!lastOk && started && Date.now() - started > POLL_MS) return "The shared results can’t be reached right now.";
+    if (pending.length) return pending.length + (pending.length === 1 ? " answer is" : " answers are") + " waiting to send from this device.";
+    return "";
+  }
+
+  function renderResults(t) {
+    $("count").textContent = String(t.total);
+    $("count-label").textContent = t.total === 1 ? "response" : "responses";
+    var msg = statusMessage();
+    $("results-note").textContent = msg;
+    $("results-note").hidden = !msg;
+    $("results-cta").hidden = !KIOSK && step >= QUESTIONS.length && sentAny;
+    $("results-cta").parentNode.hidden = $("results-cta").hidden;
+
+    var charts = $("charts");
+    charts.textContent = "";
+    if (!t.total) {
+      charts.appendChild(el("p", { class: "lede", text: LIVE && !lastOk ? "Loading results…" : "No responses yet. Take the quiz to add the first one." }));
+      return;
+    }
+    QUESTIONS.forEach(function (q) {
+      var d = t.byQ[q.id];
+      var box = el("section", { class: "chart" });
+      box.appendChild(el("h2", { text: q.text }));
+      var sub = d.answered + (d.answered === 1 ? " person answered" : " people answered");
+      if (q.multi) sub += ". Percentages add up to more than 100 because people could choose several.";
+      if (q.correct && d.answered) sub += ". " + Math.round(100 * d.counts[q.correct] / d.answered) + "% got it right.";
+      box.appendChild(el("p", { class: "hint", text: sub }));
+      var rows = el("ul", { class: "rows" });
+      q.options.forEach(function (o) {
+        var n = d.counts[o[0]];
+        var pct = d.answered ? Math.round(100 * n / d.answered) : 0;
+        var fill = el("span", { class: "fill" });
+        fill.style.width = pct + "%";
+        rows.appendChild(el("li", { class: "row" + (q.correct === o[0] ? " correct" : "") }, [
+          fill,
+          el("span", { class: "lbl", text: o[1] }),
+          el("span", { class: "n", text: pct + "%" }, [el("small", { text: String(n) })])
+        ]));
+      });
+      box.appendChild(rows);
+      charts.appendChild(box);
+    });
+  }
+
+  /* ---------- display view (one screen; for the booth iPad) ---------- */
+  var displayParts = null;   // built once, then updated in place so the bars animate
+
+  function buildDisplay() {
+    var grid = $("d-grid");
+    displayParts = { rows: {}, stat: null };
+    DISPLAY_COLUMNS.forEach(function (ids) {
+      var col = el("div", { class: "d-col" });
+      ids.forEach(function (id) {
+        if (id === "jet-stat") {
+          var big = el("b", { text: "–" });
+          col.appendChild(el("div", { class: "d-stat" }, [big, el("span", { text: "knew how Geneva’s Jet d’Eau began. Do you? Take the quiz to find out." })]));
+          displayParts.stat = big;
+          return;
+        }
+        var q = question(id);
+        var chart = el("section", { class: "d-chart" });
+        chart.style.setProperty("--n", String(q.options.length + 1.3));
+        chart.appendChild(el("h2", { text: q.short }, [q.multi ? el("small", { text: q.max ? "up to " + q.max : "choose any" }) : null]));
+        var rows = el("ul", { class: "d-rows" });
+        displayParts.rows[id] = {};
+        q.options.forEach(function (o) {
+          var fill = el("span", { class: "fill" });
+          fill.style.width = "0%";
+          var n = el("span", { class: "n", text: "0%" });
+          rows.appendChild(el("li", { class: "d-row" }, [fill, el("span", { class: "lbl", text: o[2] || o[1] }), n]));
+          displayParts.rows[id][o[0]] = { fill: fill, n: n };
+        });
+        chart.appendChild(rows);
+        col.appendChild(chart);
+      });
+      grid.appendChild(col);
+    });
+  }
+
+  function renderDisplay(t) {
+    if (!displayParts) buildDisplay();
+    $("d-count").textContent = String(t.total);
+    $("d-count-label").textContent = t.total === 1 ? "response" : "responses";
+    Object.keys(displayParts.rows).forEach(function (id) {
+      var d = t.byQ[id];
+      Object.keys(displayParts.rows[id]).forEach(function (opt) {
+        var pct = d.answered ? Math.round(100 * d.counts[opt] / d.answered) : 0;
+        displayParts.rows[id][opt].fill.style.width = pct + "%";
+        displayParts.rows[id][opt].n.textContent = pct + "%";
+      });
+    });
+    var jet = question("jet");
+    var jd = t.byQ.jet;
+    displayParts.stat.textContent = jd.answered ? Math.round(100 * jd.counts[jet.correct] / jd.answered) + "%" : "–";
+    var msg = statusMessage();
+    $("d-status").textContent = msg;
+    $("d-status").hidden = !msg;
+  }
+
+  /* ---------- booth team page (#staff): check prize codes, tune the draw ---------- */
+  var staffPass = store(STAFF_KEY) || "";
+  var staffData = null;
+  var settingsShown = false;
+
+  function when(iso) {
+    var d = new Date(iso);
+    return isNaN(d) ? "" : d.toLocaleString("en-GB", { weekday: "short", hour: "2-digit", minute: "2-digit" });
+  }
+  function staffNote(msg) { $("staff-note").textContent = msg || ""; $("staff-note").hidden = !msg; }
+
+  // Calls a staff function. Resolves with its reply, or null after showing why not.
+  function staffRpc(name, args) {
+    args = args || {};
+    args.p_pass = staffPass;
+    return rpc(name, args).then(function (res) {
+      if (res.status === 401 || res.status === 403) {
+        staffLock("That passphrase wasn’t accepted. It is set in the Supabase SQL editor: see the README.");
+        return null;
+      }
+      if (res.status === 404) { staffNote("The database needs updating: run supabase/schema.sql again."); return null; }
+      if (!res.ok) {
+        return res.json().catch(function () { return {}; }).then(function (err) {
+          staffNote("That didn’t work" + (err && err.message ? " (the database said: " + String(err.message).slice(0, 160) + ")" : "") + ". Check the values and try again.");
+          return null;
+        });
+      }
+      staffNote("");
+      return res.status === 204 ? {} : res.json();
+    }, function () { staffNote("No connection. Try again in a moment."); return null; });
+  }
+
+  function staffLock(msg) {
+    staffPass = ""; staffData = null; settingsShown = false;
+    store(STAFF_KEY, null);
+    renderStaff();
+    staffNote(msg);
+  }
+
+  function staffRefresh() {
+    if (!LIVE || !staffPass) return Promise.resolve();
+    return staffRpc("staff_prize_status").then(function (data) {
+      if (!data) return;
+      staffData = data;
+      store(STAFF_KEY, staffPass);
+      renderStaff();
+    });
+  }
+
+  function settingsHint() {
+    var n = Number($("set-one-in").value), total = Number($("set-total").value), gap = Number($("set-gap").value);
+    $("set-hint").textContent = !$("set-on").checked ? "Prizes are switched off: nobody will win."
+      : "About 1 in " + n + " people who finish the quiz will win" + (gap ? ", at least " + gap + " minutes apart" : "") +
+        ", until " + total + (total === 1 ? " prize has" : " prizes have") + " been won. People who answer fewer than four questions can’t win.";
+  }
+
+  function renderStaff() {
+    var open = !!(staffPass && staffData);
+    $("staff-login").hidden = open || !LIVE;
+    $("staff-body").hidden = !open;
+    if (!LIVE) { staffNote("This page needs the database, which isn’t available in this mode."); return; }
+    if (!open) return;
+    var cfg = staffData.settings || {};
+    var prizes = Array.isArray(staffData.prizes) ? staffData.prizes : [];
+    var claimed = prizes.filter(function (p) { return p.claimed_at; }).length;
+    var summary = staffData.responses + " responses. " + prizes.length + " of " + cfg.total + " prizes won, " + claimed + " claimed.";
+    if (!cfg.on) summary += " Prizes are switched off.";
+    else if (prizes.length >= cfg.total) summary += " All the prizes have been won: raise the total to give out more.";
+    $("staff-summary").textContent = summary;
+    var list = $("prize-list");
+    list.textContent = "";
+    prizes.forEach(function (p) {
+      list.appendChild(el("li", null, [
+        el("b", { text: String(p.code) }),
+        el("span", { text: "won " + when(p.won_at) }),
+        el("span", { class: p.claimed_at ? "" : "open", text: p.claimed_at ? "claimed " + when(p.claimed_at) : "not claimed yet" })
+      ]));
+    });
+    if (!settingsShown) {   // don't overwrite the boxes while someone is typing in them
+      $("set-on").checked = !!cfg.on;
+      $("set-one-in").value = cfg.one_in;
+      $("set-total").value = cfg.total;
+      $("set-gap").value = cfg.gap_minutes;
+      settingsShown = true;
+      settingsHint();
+    }
+  }
+
+  $("staff-login").addEventListener("submit", function (e) {
+    e.preventDefault();
+    staffPass = $("staff-pass").value;
+    $("staff-pass").value = "";
+    staffRefresh();
+  });
+  $("staff-lock").addEventListener("click", function () { staffLock(""); });
+  $("settings-form").addEventListener("input", settingsHint);
+  $("settings-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    staffRpc("staff_set_prizes", {
+      p_on: $("set-on").checked,
+      p_one_in: Number($("set-one-in").value),
+      p_total: Number($("set-total").value),
+      p_gap_minutes: Number($("set-gap").value)
+    }).then(function (ok) {
+      if (!ok) return;
+      toast("Settings saved");
+      settingsShown = false;
+      staffRefresh();
+    });
+  });
+  $("claim-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var code = $("claim-code").value.replace(/\s/g, "").toUpperCase();
+    var out = $("claim-result");
+    staffRpc("staff_claim_prize", { p_code: code }).then(function (r) {
+      if (!r) return;
+      out.hidden = false;
+      if (r.status === "ok") {
+        out.className = "verdict good";
+        out.textContent = code + " is a winner (won " + when(r.won_at) + "). Hand over the prize. The code is now marked as claimed.";
+        $("claim-code").value = "";
+      } else if (r.status === "already") {
+        out.className = "verdict bad";
+        out.textContent = code + " was already claimed, " + when(r.claimed_at) + ". Don’t give a second prize.";
+      } else {
+        out.className = "verdict bad";
+        out.textContent = code + " isn’t a prize code. Check it against the winner’s screen.";
+      }
+      staffRefresh();
+    });
+  });
+
+  function renderAll() {
+    var t = currentTally();
+    if (view === "results") renderResults(t);
+    if (view === "display") renderDisplay(t);
+    if (view === "staff") renderStaff();
+  }
+
+  /* ---------- routing ---------- */
+  var view = "quiz";
+  var started = 0;
+
+  function route() {
+    view = { "#results": "results", "#display": "display", "#staff": "staff" }[location.hash] || "quiz";
+    $("quiz").hidden = view !== "quiz";
+    $("results").hidden = view !== "results";
+    $("display").hidden = view !== "display";
+    $("staff").hidden = view !== "staff";
+    setWinMode();
+    $("jet").hidden = view !== "quiz";
+    document.body.classList.toggle("display-mode", view === "display");
+    ["quiz", "results"].forEach(function (v) {
+      if (view === v) $("nav-" + v).setAttribute("aria-current", "page"); else $("nav-" + v).removeAttribute("aria-current");
+    });
+    window.scrollTo(0, 0);
+    renderAll();
+    if (view === "staff") staffRefresh();
+    else if (view !== "quiz") refresh();
+  }
+  // Unmarked shortcuts for the booth team, to switch an iPad between its two jobs:
+  // tap the QR code on the display to open the kiosk quiz, and tap the logo on
+  // the kiosk quiz to open the display.
+  function roleUrl(kiosk, hash) {
+    var q = new URLSearchParams();
+    if (kiosk) q.set("kiosk", "1");
+    if (params.get("theme") === "light") q.set("theme", "light");
+    if (DEMO) q.set("demo", "1");
+    var qs = q.toString();
+    return location.pathname + (qs ? "?" + qs : "") + hash;
+  }
+  $("d-qr-img").addEventListener("click", function () { location.assign(roleUrl(true, "#quiz")); });
+  if (KIOSK) $("bar-logo").addEventListener("click", function () { location.assign(roleUrl(false, "#display")); });
+
+  window.addEventListener("hashchange", route);
+  window.addEventListener("online", function () { flush(); refresh(); });
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) { flush(); if (view !== "quiz") refresh(); } });
+
+  // Regular work: refresh visible results, retry waiting answers, reset an idle kiosk.
+  var lastTouch = Date.now();
+  ["pointerdown", "keydown"].forEach(function (ev) {
+    document.addEventListener(ev, function () { lastTouch = Date.now(); }, true);
+  });
+  setInterval(function () {
+    if (document.hidden) return;
+    if (pending.length) flush();
+    if (view === "staff") staffRefresh();
+    else if (view !== "quiz") refresh();
+  }, POLL_MS);
+  setInterval(function () {
+    if (!KIOSK || view === "display" || view === "staff") return;
+    var idle = Date.now() - lastTouch;
+    var onThanks = view === "quiz" && step >= QUESTIONS.length;
+    var midway = view === "results" || (view === "quiz" && step >= 0);
+    var linger = prize ? KIOSK_PRIZE_MS : KIOSK_DONE_MS;
+    if ((onThanks && idle > linger && Date.now() - doneAt > linger) || (midway && idle > KIOSK_IDLE_MS)) {
+      resetQuiz();
+      if (view !== "quiz") location.hash = "#quiz";
+    }
+  }, 2000);
+
+  /* ---------- start ---------- */
+  if (DEMO) {
+    server = emptyTally();
+    for (var i = 0; i < 137; i++) {
+      var fake = { answers: {} };
+      QUESTIONS.forEach(function (q, qi) {
+        var picks = q.options.filter(function (o, oi) { return (i * 7 + oi * 13 + qi * 5) % (q.multi ? 3 : q.options.length + 2) === 0; });
+        if (!picks.length && i % 9) picks = [q.options[(i + qi) % q.options.length]];
+        if (picks.length) fake.answers[q.id] = (q.multi ? picks : picks.slice(0, 1)).map(function (o) { return o[0]; });
+      });
+      addBody(server, fake);
+    }
+  }
+  if (DEMO && params.has("win")) { step = QUESTIONS.length; sentAny = true; prize = "K7QF"; }   // preview the winner screen
+  started = Date.now();
+  route();
+  renderQuiz();
+  flush();
+})();
+</script>
+</body>
+</html>

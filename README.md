@@ -22,6 +22,17 @@ Pixi installs Quarto into a project-local environment (`.pixi/`) on first run.
 
 Each subpage's `subtitle` is shown as the bracket label above its title. On the actions page, each case study is a `### Heading {.case}` section, which renders as a card.
 
+## The booth quiz (`/quiz/`)
+
+The quiz at `https://ic1.ceh.ac.uk/quiz/` is a copy of the [ic1-quiz](https://github.com/samharrison7/ic1-quiz) repo's page, kept in `quiz/` and published untouched (it is listed under `resources` in `_quarto.yml`). Don't edit it here. To update it, with `ic1-quiz` checked out next to this repo:
+
+```bash
+pixi run sync-quiz   # copy the quiz into quiz/
+pixi run publish     # rebuild and publish the site
+```
+
+Then commit the updated `quiz/` folder.
+
 ## Editing the home page
 
 The home page lives in `index.qmd`:
